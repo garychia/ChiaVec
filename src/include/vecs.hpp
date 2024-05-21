@@ -14,6 +14,17 @@ namespace ChiaVec
         Storage data;
         std::size_t length;
 
+        void reserve(std::size_t elements) {
+            if (length + elements > data.len()) {
+                expand(elements);
+            }
+        }
+
+        void expand(std::size_t elements) {
+            std::size_t capacity = std::max(data.len() * 2, elements);
+            data.resize(capacity);
+        }
+
     public:
         Vec() : data(), length(0) {}
 
@@ -71,10 +82,7 @@ namespace ChiaVec
         template <class U>
         void push(U &&element)
         {
-            if (length == data.len())
-            {
-                data.resize(data.len() * 2);
-            }
+            reserve(1);
             this->data.ptr()[length] = std::forward<U &&>(element);
             length++;
         }
@@ -130,11 +138,8 @@ namespace ChiaVec
         void push(const T &element)
         {
             CudaAllocator allocator;
-            if (this->length == this->data.len())
-            {
-                this->data.resize(this->data.len() * 2);
-            }
-            allocator.copyHostToDevice(this->data.ptr() + this->length, &element, 1);
+            this->reserve(1);
+            allocator.copyHostToDevice(this->data.ptr() + this->length, &element, sizeof(T));
             this->length++;
         }
 
