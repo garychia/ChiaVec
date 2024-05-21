@@ -71,11 +71,11 @@ namespace ChiaVec
         template <class U>
         void push(U &&element)
         {
-            if (length == data.length())
+            if (length == data.len())
             {
-                data.resize(data.length() * 2);
+                data.resize(data.len() * 2);
             }
-            (*this)[length] = std::forward(element);
+            this->data.ptr()[length] = std::forward<U &&>(element);
             length++;
         }
 
@@ -129,11 +129,12 @@ namespace ChiaVec
 
         void push(const T &element)
         {
-            if (this->length == this->data.length())
+            CudaAllocator allocator;
+            if (this->length == this->data.len())
             {
-                this->data.resize(this->data.length() * 2);
+                this->data.resize(this->data.len() * 2);
             }
-            this->allocator.copyHostToDevice(this->data.ptr() + this->length, &element, 1);
+            allocator.copyHostToDevice(this->data.ptr() + this->length, &element, 1);
             this->length++;
         }
 
