@@ -32,12 +32,18 @@ int main(void)
     constexpr std::size_t length = 4096;
     int nums[length];
 
-    for (std::size_t i = 0; i < length; i++)
+    for (int i = 0; i < length; i++)
     {
         nums[i] = i;
     }
 
-    ChiaVec::CudaVec<int> v1(nums, length), v2(nums, length);
+    ChiaVec::CudaVec<int> v1(nums, length), v2;
+
+    for (int i = 0; i < length; i++)
+    {
+        v2.push(i);
+    }
+
     ChiaVec::CudaVec<int> v3 = v1.calculate(v2, [](int *result, const int *op1, const int *op2, std::size_t length)
                                             {
         std::size_t blocks = (length + 511) / 512;
