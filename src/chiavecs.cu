@@ -114,6 +114,34 @@
         const ChiaVec::CudaVec<type> &v = *static_cast<const ChiaVec::CudaVec<type> *>(vec->_ptr);      \
         return v[index].value_or(nullptr);                                                              \
     }                                                                                                   \
+    void Vec_##type##_push(struct Vec_##type *vec, const type *value)                                   \
+    {                                                                                                   \
+        ChiaVec::Vec<type> &v = *static_cast<ChiaVec::Vec<type> *>(vec->_ptr);                          \
+        v.push(*value);                                                                                 \
+    }                                                                                                   \
+    void CudaVec_##type##_push(struct CudaVec_##type *vec, const type *value)                           \
+    {                                                                                                   \
+        ChiaVec::CudaVec<type> &v = *static_cast<ChiaVec::CudaVec<type> *>(vec->_ptr);                  \
+        v.push(*value);                                                                                 \
+    }                                                                                                   \
+    void Vec_##type##_pop(struct Vec_##type *vec, type *dst)                                            \
+    {                                                                                                   \
+        ChiaVec::Vec<type> &v = *static_cast<ChiaVec::Vec<type> *>(vec->_ptr);                          \
+        std::optional<type> last_optional = v.pop();                                                    \
+        if (last_optional.has_value())                                                                  \
+        {                                                                                               \
+            *dst = last_optional.value();                                                               \
+        }                                                                                               \
+    }                                                                                                   \
+    void CudaVec_##type##_pop(struct CudaVec_##type *vec, type *dst)                                    \
+    {                                                                                                   \
+        ChiaVec::CudaVec<type> &v = *static_cast<ChiaVec::CudaVec<type> *>(vec->_ptr);                  \
+        std::optional<type> last_optional = v.pop();                                                    \
+        if (last_optional.has_value())                                                                  \
+        {                                                                                               \
+            *dst = last_optional.value();                                                               \
+        }                                                                                               \
+    }                                                                                                   \
     CHIAVEC_CUDAVEC_OPERATION_IMPLEMENTATION(type, add, vec_add);                                       \
     CHIAVEC_CUDAVEC_OPERATION_IMPLEMENTATION(type, sub, vec_sub);                                       \
     CHIAVEC_CUDAVEC_OPERATION_IMPLEMENTATION(type, mul, vec_mul);                                       \

@@ -32,6 +32,10 @@
     type *CudaVec_##type##_get(struct CudaVec_##type *vec, size_t index);                                \
     const type *Vec_##type##_get_const(const struct Vec_##type *vec, size_t index);                      \
     const type *CudaVec_##type##_get_const(const struct CudaVec_##type *vec, size_t index);              \
+    void Vec_##type##_push(struct Vec_##type *vec, const type *value);                                   \
+    void CudaVec_##type##_push(struct CudaVec_##type *vec, const type *value);                           \
+    void Vec_##type##_pop(struct Vec_##type *vec, type *dst);                                            \
+    void CudaVec_##type##_pop(struct CudaVec_##type *vec, type *dst);                                    \
     CUDAVEC_DECLEAR_CUDAVEC_OPERATION(type, add);                                                        \
     CUDAVEC_DECLEAR_CUDAVEC_OPERATION(type, sub);                                                        \
     CUDAVEC_DECLEAR_CUDAVEC_OPERATION(type, div);                                                        \
