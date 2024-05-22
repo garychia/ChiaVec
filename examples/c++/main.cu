@@ -37,11 +37,11 @@ int main(void)
         nums[i] = i;
     }
 
-    ChiaVec::CudaVec<int> v1(nums, length), v2;
+    ChiaVec::CudaVec<int> v1(nums, length, true), v2;
 
     for (int i = 0; i < length; i++)
     {
-        v2.push(i);
+        v2.push(i, true);
     }
 
     ChiaVec::CudaVec<int> v3 = v1.calculate(v2, [](int *result, const int *op1, const int *op2, std::size_t length)

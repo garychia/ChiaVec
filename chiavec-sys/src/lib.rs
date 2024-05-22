@@ -22,7 +22,7 @@ mod tests {
             }
 
             Vec_int32_t_init(addr_of_mut!(v1));
-            Vec_int32_t_init_with_values(addr_of_mut!(v2), values.as_ptr(), values.len());
+            Vec_int32_t_init_with_values(addr_of_mut!(v2), values.as_ptr(), values.len(), 1);
             Vec_int32_t_destroy(addr_of_mut!(v1));
             Vec_int32_t_destroy(addr_of_mut!(v2));
 
@@ -36,7 +36,7 @@ mod tests {
             }
 
             CudaVec_int32_t_init(addr_of_mut!(v1));
-            CudaVec_int32_t_init_with_values(addr_of_mut!(v2), values.as_ptr(), values.len());
+            CudaVec_int32_t_init_with_values(addr_of_mut!(v2), values.as_ptr(), values.len(), 1);
             CudaVec_int32_t_destroy(addr_of_mut!(v1));
             CudaVec_int32_t_destroy(addr_of_mut!(v2));
         }
@@ -57,10 +57,10 @@ mod tests {
             }
 
             Vec_int32_t_init(addr_of_mut!(v1));
-            Vec_int32_t_init_with_values(addr_of_mut!(v2), values.as_ptr(), values.len());
+            Vec_int32_t_init_with_values(addr_of_mut!(v2), values.as_ptr(), values.len(), 1);
 
             CudaVec_int32_t_init(addr_of_mut!(cuda_v1));
-            CudaVec_int32_t_init_with_values(addr_of_mut!(cuda_v2), values.as_ptr(), values.len());
+            CudaVec_int32_t_init_with_values(addr_of_mut!(cuda_v2), values.as_ptr(), values.len(), 1);
 
             let value_from_v1 = Vec_int32_t_get(addr_of_mut!(v1), 0);
             assert!(value_from_v1.is_null());

@@ -32,13 +32,13 @@ int main(void)
         nums[i] = i;
     }
 
-    CudaVec_int32_t_init_with_values(&v1, nums, length);
+    CudaVec_int32_t_init_with_values(&v1, nums, length, 1);
     CudaVec_int32_t_init(&v2);
     CudaVec_int32_t_init(&v3);
     Vec_int32_t_init(&v);
 
     for (i = 0; i < length; i++) {
-        CudaVec_int32_t_push(&v2, &i);
+        CudaVec_int32_t_push(&v2, &i, 1);
     }
 
     CudaVec_int32_t_add(&v3, &v1, &v2, length);
