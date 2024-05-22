@@ -32,10 +32,10 @@ namespace ChiaVec
                 length = 0;
             }
 
-            virtual void copyElement(const T &element, std::size_t index)
+            virtual void copyElement(const T &element, std::size_t index, bool elementOnHost)
             {
                 Allocator allocator;
-                allocator.copy(&elements[index], &element, sizeof(T));
+                allocator.copy(&elements[index], &element, sizeof(T), Allocator::AllocatesOnHost, elementOnHost);
             }
 
         public:
@@ -49,17 +49,17 @@ namespace ChiaVec
                 elements = static_cast<T *>(allocator(sizeof(T) * length));
             }
 
-            RawVec(const T *data, std::size_t length) : RawVec(length)
+            RawVec(const T *data, std::size_t length, bool onHost) : RawVec(length)
             {
-                Allocator allocator;
-                allocator.copy(elements, data, sizeof(T) * length);
+                copyMemory(data, length, onHost);
             }
 
-            RawVec(const RawVec<T, Allocator> &other) : RawVec(other.elements, other.length)
+            template <class OtherAllocator>
+            RawVec(const RawVec<T, OtherAllocator> &other) : RawVec(other.elements, other.length, OtherAllocator::AllocatesOnHost)
             {
             }
 
-            RawVec(RawVec<T, Allocator> &&other) : RawVec(other.elements, other.length)
+            RawVec(RawVec<T, Allocator> &&other) : elements(other.elements), length(other.length)
             {
                 other.elements = nullptr;
                 other.length = 0;
@@ -74,7 +74,16 @@ namespace ChiaVec
             {
                 Allocator allocator;
                 resize(other.length);
-                allocator.copy(elements, other.elements, sizeof(T) * length);
+                allocator.copy(elements, other.elements, sizeof(T) * length, Allocator::AllocatesOnHost, Allocator::AllocatesOnHost);
+                return *this;
+            }
+
+            template <class OtherAllocator>
+            RawVec<T, Allocator> &operator=(const RawVec<T, OtherAllocator> &other)
+            {
+                Allocator allocator;
+                resize(other.length);
+                allocator.copy(elements, other.elements, sizeof(T) * length, Allocator::AllocatesOnHost, OtherAllocator::AllocatesOnHost);
                 return *this;
             }
 
@@ -105,7 +114,7 @@ namespace ChiaVec
 
             void resize(std::size_t newLength)
             {
-                if (newLength == 0)
+                if (0 == newLength)
                 {
                     deleteElements();
                 }
@@ -118,101 +127,51 @@ namespace ChiaVec
             }
 
             template <class Itr>
-            void copy(Itr begin, std::size_t length)
+            void copy(Itr iter, std::size_t length, bool onHost)
             {
                 resize(length);
                 for (std::size_t i = 0; i < length; i++)
                 {
-                    copyElement(*begin, i);
-                    begin++;
+                    copyElement(*iter, i, onHost);
+                    iter++;
                 }
             }
 
-            void copyMemory(const T *ptr, std::size_t length)
+            void copyMemory(const T *ptr, std::size_t length, bool onHost)
             {
                 Allocator allocator;
                 resize(length);
-                allocator.copy(elements, ptr, sizeof(T) * length);
+                allocator.copy(elements, ptr, sizeof(T) * length, Allocator::AllocatesOnHost, onHost);
             }
 
-            template <class U, class CudaAllocator>
-            friend class CudaRawVec;
+            template <class OtherAllocator>
+            void copyTo(RawVec<T, OtherAllocator> &other) const
+            {
+                other.resize(length);
+                other.copyMemory(elements, length, Allocator::AllocatesOnHost);
+            }
+
+            template <class OtherAllocator>
+            void copyFrom(const RawVec<T, OtherAllocator> &other)
+            {
+                resize(other.len());
+                copyMemory(other.elements, other.len(), OtherAllocator::AllocatesOnHost);
+            }
+
+            template <class OtherAllocator = Allocator>
+            RawVec<T, OtherAllocator> clone() const
+            {
+                RawVec<T, OtherAllocator> v(length);
+                v.copyMemory(elements, length, Allocator::AllocatesOnHost);
+                return v;
+            }
+
+            template <class U, class OtherAllocator>
+            friend class RawVec;
         };
 
         template <class T, class CudaAllocator = Memory::DefaultCudaAllocator>
-        class CudaRawVec : public RawVec<T, CudaAllocator>
-        {
-        private:
-            virtual void copyElement(const T &element, std::size_t index) override
-            {
-                CudaAllocator allocator;
-                allocator.copyHostToDevice(this->elements + index, &element, sizeof(T));
-            }
-
-        public:
-            CudaRawVec() : RawVec<T, CudaAllocator>()
-            {
-            }
-
-            CudaRawVec(std::size_t length) : RawVec<T, CudaAllocator>(length)
-            {
-            }
-
-            CudaRawVec(const T *data, std::size_t length) : RawVec<T, CudaAllocator>(length)
-            {
-                if (length != 0)
-                {
-                    CudaAllocator allocator;
-                    allocator.copyHostToDevice(this->elements, data, sizeof(T) * length);
-                }
-            }
-
-            CudaRawVec(const CudaRawVec<T, CudaAllocator> &other) : RawVec<T, CudaAllocator>(other.elements, other.length)
-            {
-            }
-
-            CudaRawVec(CudaRawVec<T, CudaAllocator> &&other) : RawVec<T, CudaAllocator>(std::move(other.elements), other.length)
-            {
-                other.elements = nullptr;
-                other.length = 0;
-            }
-
-            CudaRawVec<T, CudaAllocator> &operator=(const CudaRawVec<T, CudaAllocator> &other)
-            {
-                return static_cast<CudaRawVec<T, CudaAllocator> &>(RawVec<T, CudaAllocator>::operator=(other));
-            }
-
-            CudaRawVec<T, CudaAllocator> &operator=(CudaRawVec<T, CudaAllocator> &&other)
-            {
-                return static_cast<CudaRawVec<T, CudaAllocator> &>(RawVec<T, CudaAllocator>::operator=(std::move(other)));
-            }
-
-            template <class Allocator = Memory::DefaultAllocator>
-            RawVec<T, Allocator> toVec() const
-            {
-                Allocator vecAlloc;
-                CudaAllocator allocator;
-                T *data = vecAlloc(this->length);
-                allocator.copyDeviceToHost(data, this->elements, sizeof(T) * this->length);
-                return RawVec<T, Allocator>(data, this->length);
-            }
-
-            template <class Allocator>
-            void copyToRawVec(RawVec<T, Allocator> &vec) const
-            {
-                CudaAllocator allocator;
-                vec.resize(this->length);
-                allocator.copyDeviceToHost(vec.elements, this->elements, sizeof(T) * this->length);
-            }
-
-            template <class Allocator>
-            void copyFromRawVec(const RawVec<T, Allocator> &vec)
-            {
-                CudaAllocator allocator;
-                this->resize(vec.length);
-                allocator.copyHostToDevice(this->elements, vec.elements, sizeof(T) * vec.length);
-            }
-        };
+        using CudaRawVec = RawVec<T, CudaAllocator>;
     } // namespace Raw
 } // namespace ChiaVec
 

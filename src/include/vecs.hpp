@@ -14,14 +14,17 @@ namespace ChiaVec
         Storage data;
         std::size_t length;
 
-        void reserve(std::size_t elements) {
-            if (length + elements > data.len()) {
-                expand(elements);
+        void reserve(std::size_t extraElements)
+        {
+            if (length + extraElements > data.len())
+            {
+                expand(extraElements);
             }
         }
 
-        void expand(std::size_t elements) {
-            std::size_t capacity = std::max(data.len() * 2, elements);
+        void expand(std::size_t extraElements)
+        {
+            std::size_t capacity = std::max(data.len() * 2, data.len() + extraElements);
             data.resize(capacity);
         }
 
@@ -32,7 +35,7 @@ namespace ChiaVec
         {
         }
 
-        Vec(const T *data, std::size_t length) : data(data, length), length(length)
+        Vec(const T *data, std::size_t length, bool onHost) : data(data, length, onHost), length(length)
         {
         }
 
@@ -41,7 +44,8 @@ namespace ChiaVec
             data.copy(l.begin(), l.size());
         }
 
-        Vec(const Vec<T, Allocator, Storage> &other) : data(other.data), length(other.length)
+        template <class OtherAllocator, class OtherStorage>
+        Vec(const Vec<T, OtherAllocator, OtherStorage> &other) : data(other.data), length(other.length)
         {
         }
 
@@ -51,6 +55,14 @@ namespace ChiaVec
         }
 
         Vec<T, Allocator, Storage> &operator=(const Vec<T, Allocator, Storage> &other)
+        {
+            this->data = other.data;
+            this->length = other.length;
+            return *this;
+        }
+
+        template <class OtherAllocator, class OtherStorage>
+        Vec<T, Allocator, Storage> &operator=(const Vec<T, OtherAllocator, OtherStorage> &other)
         {
             this->data = other.data;
             this->length = other.length;
@@ -80,10 +92,18 @@ namespace ChiaVec
         }
 
         template <class U>
-        void push(U &&element)
+        void push(U &&element, bool onHost)
         {
             reserve(1);
-            this->data.ptr()[length] = std::forward<U &&>(element);
+            if (Allocator::AllocatesOnHost && onHost)
+            {
+                this->data.ptr()[length] = std::forward<U &&>(element);
+            }
+            else
+            {
+                Allocator allocator;
+                allocator.copy(this->data.ptr() + length, &element, sizeof(T), Allocator::AllocatesOnHost, onHost);
+            }
             length++;
         }
 
@@ -92,12 +112,48 @@ namespace ChiaVec
             if (length != 0)
             {
                 length--;
-                return std::optional<T>(std::move(data.ptr()[length]));
+                if (Allocator::AllocatesOnHost)
+                {
+                    return std::optional<T>(std::move(data.ptr()[length]));
+                }
+                else
+                {
+                    Allocator allocator;
+                    T last[1];
+                    allocator.copy(last, data.ptr() + length, sizeof(T), true, false);
+                    return std::optional<T>(last[0]);
+                }
             }
             return std::nullopt;
         }
 
-        template <class U, class CudaAllocator, class CudaStorage>
+        template <class OtherAllocator, class OtherStorage>
+        void copyTo(Vec<T, OtherAllocator, OtherStorage> &vec) const
+        {
+            this->data.copyTo(vec.data);
+            vec.length = this->length;
+        }
+
+        template <class OtherAllocator, class OtherStorage>
+        void copyFrom(const Vec<T, OtherAllocator, OtherStorage> &vec)
+        {
+            this->data.copyFrom(vec.data);
+            this->length = vec.length;
+        }
+
+        template <class OtherAllocator = Memory::DefaultAllocator, class OtherStorage = Raw::RawVec<T, OtherAllocator>>
+        Vec<T, OtherAllocator, OtherStorage> toVec() const
+        {
+            Vec<T, OtherAllocator, OtherStorage> vec(this->length);
+            this->data.copyTo(vec.data);
+            vec.length = this->length;
+            return vec;
+        }
+
+        template <class U, class OtherAllocator, class OtherStorage>
+        friend class Vec;
+
+        template <class U, class OtherAllocator, class OtherStorage>
         friend class CudaVec;
     };
 
@@ -135,31 +191,10 @@ namespace ChiaVec
             return std::nullopt;
         }
 
-        void push(const T &element)
-        {
-            CudaAllocator allocator;
-            this->reserve(1);
-            allocator.copyHostToDevice(this->data.ptr() + this->length, &element, sizeof(T));
-            this->length++;
-        }
-
-        virtual std::optional<T> pop() override
-        {
-            if (this->length != 0)
-            {
-                CudaAllocator allocator;
-                T last[1];
-                this->length--;
-                allocator.copyDeviceToHost(last, this->data.ptr() + this->length, 1);
-                return last[0];
-            }
-            return std::nullopt;
-        }
-
         template <class Fn>
         CudaVec<T, CudaAllocator, Storage> calculate(const CudaVec<T, CudaAllocator, Storage> &other, Fn deviceFunc) const
         {
-            std::size_t length = std::min(this->length, other.length);
+            std::size_t length = std::min(this->len(), other.len());
             CudaVec<T, CudaAllocator, Storage> result(length);
             deviceFunc(result.data.ptr(), this->data.ptr(), other.data.ptr(), length);
             result.length = length;
@@ -170,38 +205,6 @@ namespace ChiaVec
         void calculateInplace(const CudaVec<T, CudaAllocator, Storage> &other, Fn deviceFunc)
         {
             deviceFunc(this->data.ptr(), this->data.ptr(), other.data.ptr(), std::min(this->length, other.length));
-        }
-
-        template <class Allocator, class VecStorage>
-        void copyToVec(Vec<T, Allocator, VecStorage> &vec) const
-        {
-            this->data.copyToRawVec(vec.data);
-            vec.length = this->length;
-        }
-
-        template <class Allocator, class VecStorage>
-        void copyFromVec(const Vec<T, Allocator, VecStorage> &vec)
-        {
-            this->data.copyFromRawVec(vec.data);
-            this->length = vec.length;
-        }
-
-        template <class Allocator = Memory::DefaultAllocator, class VecStorage = Raw::RawVec<T, Allocator>>
-        Vec<T, Allocator, VecStorage> toVec() const
-        {
-            Vec<T, Allocator, VecStorage> vec(this->length);
-            this->data.copyToRawVec(vec.data);
-            vec.length = this->length;
-            return vec;
-        }
-
-        template <class Allocator, class VecStorage>
-        static CudaVec<T, CudaAllocator, Storage> fromVec(const Vec<T, Allocator, VecStorage> &vec)
-        {
-            CudaVec<T, CudaAllocator, Storage> cudaVec(vec.length);
-            cudaVec.data.copyFromRawVec(vec.data);
-            cudaVec.length = vec.length;
-            return cudaVec;
         }
     };
 } // namespace ChiaVec
