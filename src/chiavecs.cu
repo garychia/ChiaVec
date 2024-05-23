@@ -96,20 +96,22 @@
     type *Vec_##type##_get(struct Vec_##type *vec, size_t index)                                                  \
     {                                                                                                             \
         ChiaVec::Vec<type> &v = *static_cast<ChiaVec::Vec<type> *>(vec->_ptr);                                    \
-        return index < v.len() ? &v[index] : nullptr;                                                             \
+        return v.get(index).value_or(nullptr);                                                                    \
     }                                                                                                             \
     type *CudaVec_##type##_get(struct CudaVec_##type *vec, size_t index)                                          \
     {                                                                                                             \
-        return nullptr;                                                                                           \
+        ChiaVec::CudaVec<type> &v = *static_cast<ChiaVec::CudaVec<type> *>(vec->_ptr);                            \
+        return v.get(index).value_or(nullptr);                                                                    \
     }                                                                                                             \
     const type *Vec_##type##_get_const(const struct Vec_##type *vec, size_t index)                                \
     {                                                                                                             \
         const ChiaVec::Vec<type> &v = *static_cast<const ChiaVec::Vec<type> *>(vec->_ptr);                        \
-        return index < v.len() ? &v[index] : nullptr;                                                             \
+        return v.getConst(index).value_or(nullptr);                                                               \
     }                                                                                                             \
     const type *CudaVec_##type##_get_const(const struct CudaVec_##type *vec, size_t index)                        \
     {                                                                                                             \
-        return nullptr;                                                                                           \
+        const ChiaVec::CudaVec<type> &v = *static_cast<const ChiaVec::CudaVec<type> *>(vec->_ptr);                \
+        return v.getConst(index).value_or(nullptr);                                                               \
     }                                                                                                             \
     void Vec_##type##_push(struct Vec_##type *vec, const type *value, uint8_t on_host)                            \
     {                                                                                                             \

@@ -91,6 +91,16 @@ namespace ChiaVec
             return length;
         }
 
+        std::optional<T *> get(std::size_t index)
+        {
+            return index < length ? std::optional<T *>(&this->data.ptr()[index]) : std::nullopt;
+        }
+
+        std::optional<const T *> getConst(std::size_t index) const
+        {
+            return index < length ? std::optional<const T *>(&this->data.ptr()[index]) : std::nullopt;
+        }
+
         template <class U>
         void push(U &&element, bool onHost)
         {
