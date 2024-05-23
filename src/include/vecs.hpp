@@ -76,14 +76,14 @@ namespace ChiaVec
             return *this;
         }
 
-        virtual std::optional<T *> operator[](std::size_t index)
+        virtual T &operator[](std::size_t index)
         {
-            return index < length ? std::optional<T *>(&data.ptr()[index]) : std::nullopt;
+            return data.ptr()[index];
         }
 
-        virtual std::optional<const T *> operator[](std::size_t index) const
+        virtual const T &operator[](std::size_t index) const
         {
-            return index < length ? std::optional<const T *>(&data.ptr()[index]) : std::nullopt;
+            return data.ptr()[index];
         }
 
         std::size_t len() const
@@ -121,7 +121,7 @@ namespace ChiaVec
                     Allocator allocator;
                     T last[1];
                     allocator.copy(last, data.ptr() + length, sizeof(T), true, false);
-                    return std::optional<T>(last[0]);
+                    return std::optional<T>(std::move(last[0]));
                 }
             }
             return std::nullopt;
@@ -179,16 +179,6 @@ namespace ChiaVec
         CudaVec<T, CudaAllocator, Storage> &operator=(CudaVec<T, CudaAllocator, Storage> &&other)
         {
             return static_cast<CudaVec<T, CudaAllocator, Storage> &>(Vec<T, CudaAllocator, Storage>::operator=(std::move(other)));
-        }
-
-        virtual std::optional<T *> operator[](std::size_t index) override
-        {
-            return std::nullopt;
-        }
-
-        virtual std::optional<const T *> operator[](std::size_t index) const override
-        {
-            return std::nullopt;
         }
 
         template <class Fn>

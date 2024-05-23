@@ -22,7 +22,7 @@ void printVec(const ChiaVec::Vec<T> &v)
         {
             std::cout << ", ";
         }
-        std::cout << *v[i].value();
+        std::cout << v[i];
     }
     std::cout << "]\n";
 }
