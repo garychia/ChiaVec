@@ -142,7 +142,7 @@ namespace ChiaVec
         }
 
         template <class OtherAllocator = Memory::DefaultAllocator, class OtherStorage = Raw::RawVec<T, OtherAllocator>>
-        Vec<T, OtherAllocator, OtherStorage> toVec() const
+        Vec<T, OtherAllocator, OtherStorage> clone() const
         {
             Vec<T, OtherAllocator, OtherStorage> vec(this->length);
             this->data.copyTo(vec.data);

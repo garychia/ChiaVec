@@ -49,8 +49,8 @@ int main(void)
         std::size_t blocks = (length + 511) / 512;
         vec_add<<<blocks, 512>>>(result, op1, op2, length); });
 
-    printVec(v1.toVec());
-    printVec(v2.toVec());
-    printVec(v3.toVec());
+    printVec(v1.clone());
+    printVec(v2.clone());
+    printVec(v3.clone());
     return 0;
 }
