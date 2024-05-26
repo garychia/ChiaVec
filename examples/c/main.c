@@ -37,11 +37,12 @@ int main(void)
     CudaVec_int32_t_init(&v3);
     Vec_int32_t_init(&v);
 
-    for (i = 0; i < length; i++) {
+    for (i = 0; i < length; i++)
+    {
         CudaVec_int32_t_push(&v2, &i, 1);
     }
 
-    CudaVec_int32_t_add(&v3, &v1, &v2, length);
+    CudaVec_int32_t_add(&v3, &v1, &v2);
 
     Vec_int32_t_copy_from_device(&v, &v1);
     printVec(&v);
