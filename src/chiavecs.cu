@@ -1,29 +1,14 @@
 #include "chiavecs.h"
+
 #include "vecs.hpp"
 
-#define CHIAVEC_KERNEL_IMPLEMENTATION(func_name, operator)                            \
-    template <class T>                                                                \
-    __global__ void func_name(T *dst, const T *op1, const T *op2, std::size_t length) \
-    {                                                                                 \
-        unsigned int i = blockDim.x * blockIdx.x + threadIdx.x;                       \
-        if (i < length)                                                               \
-        {                                                                             \
-            dst[i] = op1[i] operator op2[i];                                          \
-        }                                                                             \
-    }
-
-#define CHIAVEC_CUDAVEC_OPERATION_IMPLEMENTATION(type, operation, kernel)                                                        \
-    void CudaVec_##type##_##operation(CudaVec_##type *result, const CudaVec_##type *op1, const CudaVec_##type *op2, size_t size) \
-    {                                                                                                                            \
-        ChiaVec::CudaVec<type> &resultVec = *static_cast<ChiaVec::CudaVec<type> *>(result->_ptr);                                \
-        const ChiaVec::CudaVec<type> &v1 = *static_cast<const ChiaVec::CudaVec<type> *>(op1->_ptr);                              \
-        const ChiaVec::CudaVec<type> &v2 = *static_cast<const ChiaVec::CudaVec<type> *>(op2->_ptr);                              \
-        auto f = [](type *dst, const type *op1, const type *op2, size_t length) {                                                \
-            constexpr size_t threads = 512;                                                                                      \
-            std::size_t blocks = (length + threads - 1) / threads;                                                               \
-            kernel<<<blocks, threads>>>(dst, op1, op2, length);                                                                  \
-        };                                                                                                                       \
-        resultVec = v1.calculate(v2, f);                                                                                         \
+#define CHIAVEC_CUDAVEC_OPERATION_IMPLEMENTATION(type, operation, op)                                               \
+    void CudaVec_##type##_##operation(CudaVec_##type *result, const CudaVec_##type *op1, const CudaVec_##type *op2) \
+    {                                                                                                               \
+        ChiaVec::CudaVec<type> &resultVec = *static_cast<ChiaVec::CudaVec<type> *>(result->_ptr);                   \
+        const ChiaVec::CudaVec<type> &v1 = *static_cast<const ChiaVec::CudaVec<type> *>(op1->_ptr);                 \
+        const ChiaVec::CudaVec<type> &v2 = *static_cast<const ChiaVec::CudaVec<type> *>(op2->_ptr);                 \
+        resultVec = v1.calculate(v2, ChiaVec::Types::ToDataType<type>::value, op);                                  \
     }
 
 #define CUDAVEC_VECS_IMPLEMENTATION(type)                                                                         \
@@ -141,15 +126,10 @@
             *dst = last_optional.value();                                                                         \
         }                                                                                                         \
     }                                                                                                             \
-    CHIAVEC_CUDAVEC_OPERATION_IMPLEMENTATION(type, add, vec_add);                                                 \
-    CHIAVEC_CUDAVEC_OPERATION_IMPLEMENTATION(type, sub, vec_sub);                                                 \
-    CHIAVEC_CUDAVEC_OPERATION_IMPLEMENTATION(type, mul, vec_mul);                                                 \
-    CHIAVEC_CUDAVEC_OPERATION_IMPLEMENTATION(type, div, vec_div);
-
-CHIAVEC_KERNEL_IMPLEMENTATION(vec_add, +);
-CHIAVEC_KERNEL_IMPLEMENTATION(vec_sub, -);
-CHIAVEC_KERNEL_IMPLEMENTATION(vec_mul, *);
-CHIAVEC_KERNEL_IMPLEMENTATION(vec_div, /);
+    CHIAVEC_CUDAVEC_OPERATION_IMPLEMENTATION(type, add, ChiaVec::Types::Operator::Pls);                           \
+    CHIAVEC_CUDAVEC_OPERATION_IMPLEMENTATION(type, sub, ChiaVec::Types::Operator::Sub);                           \
+    CHIAVEC_CUDAVEC_OPERATION_IMPLEMENTATION(type, mul, ChiaVec::Types::Operator::Mul);                           \
+    CHIAVEC_CUDAVEC_OPERATION_IMPLEMENTATION(type, div, ChiaVec::Types::Operator::Div);
 
 extern "C"
 {

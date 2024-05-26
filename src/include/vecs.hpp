@@ -3,6 +3,9 @@
 
 #include "rawvecs.hpp"
 
+#include "types.hpp"
+#include "utilities.hpp"
+
 #include <optional>
 
 namespace ChiaVec
@@ -191,20 +194,19 @@ namespace ChiaVec
             return static_cast<CudaVec<T, CudaAllocator, Storage> &>(Vec<T, CudaAllocator, Storage>::operator=(std::move(other)));
         }
 
-        template <class Fn>
-        CudaVec<T, CudaAllocator, Storage> calculate(const CudaVec<T, CudaAllocator, Storage> &other, Fn deviceFunc) const
+        CudaVec<T, CudaAllocator, Storage> calculate(const CudaVec<T, CudaAllocator, Storage> &other, Types::DataType type, Types::Operator op) const
         {
             std::size_t length = std::min(this->len(), other.len());
             CudaVec<T, CudaAllocator, Storage> result(length);
-            deviceFunc(result.data.ptr(), this->data.ptr(), other.data.ptr(), length);
+
+            Utilities::deviceArrayCalculate(result.data.ptr(), this->data.ptr(), other.data.ptr(), length, type, op);
             result.length = length;
             return result;
         }
 
-        template <class Fn>
-        void calculateInplace(const CudaVec<T, CudaAllocator, Storage> &other, Fn deviceFunc)
+        void calculateInplace(const CudaVec<T, CudaAllocator, Storage> &other, Types::DataType type, Types::Operator op)
         {
-            deviceFunc(this->data.ptr(), this->data.ptr(), other.data.ptr(), std::min(this->length, other.length));
+            Utilities::deviceArrayCalculate(this->data.ptr(), this->data.ptr(), other.data.ptr(), std::min(this->length, other.length), type, op);
         }
     };
 } // namespace ChiaVec

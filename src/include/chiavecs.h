@@ -5,7 +5,7 @@
 #include <stddef.h>
 
 #define CUDAVEC_DECLEAR_CUDAVEC_OPERATION(type, operation) \
-    void CudaVec_##type##_##operation(struct CudaVec_##type *result, const struct CudaVec_##type *op1, const struct CudaVec_##type *op2, size_t size);
+    void CudaVec_##type##_##operation(struct CudaVec_##type *result, const struct CudaVec_##type *op1, const struct CudaVec_##type *op2);
 
 #define CUDAVEC_DECLARE_VECS(type)                                                                                        \
     struct Vec_##type                                                                                                     \
