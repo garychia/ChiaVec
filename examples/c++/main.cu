@@ -44,7 +44,7 @@ int main(void)
         v2.push(i, true);
     }
 
-    ChiaVec::CudaVec<int> v3 = v1.calculate(v2, ChiaVec::Types::ToDataType<int>::value, ChiaVec::Types::Operator::Pls);
+    ChiaVec::CudaVec<int> v3 = v1.calculate(v2, ChiaVec::Types::Operator::Pls);
 
     printVec(v1.clone());
     printVec(v2.clone());
