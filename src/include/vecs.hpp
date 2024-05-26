@@ -194,12 +194,12 @@ namespace ChiaVec
             return static_cast<CudaVec<T, CudaAllocator, Storage> &>(Vec<T, CudaAllocator, Storage>::operator=(std::move(other)));
         }
 
-        CudaVec<T, CudaAllocator, Storage> calculate(const CudaVec<T, CudaAllocator, Storage> &other, Types::DataType type, Types::Operator op) const
+        CudaVec<T, CudaAllocator, Storage> calculate(const CudaVec<T, CudaAllocator, Storage> &other, Types::Operator op) const
         {
             std::size_t length = std::min(this->len(), other.len());
             CudaVec<T, CudaAllocator, Storage> result(length);
 
-            Utilities::deviceArrayCalculate(result.data.ptr(), this->data.ptr(), other.data.ptr(), length, type, op);
+            Utilities::deviceArrayCalculate(result.data.ptr(), this->data.ptr(), other.data.ptr(), length, Types::ToDataType<T>::value, op);
             result.length = length;
             return result;
         }

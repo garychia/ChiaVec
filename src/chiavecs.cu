@@ -8,7 +8,7 @@
         ChiaVec::CudaVec<type> &resultVec = *static_cast<ChiaVec::CudaVec<type> *>(result->_ptr);                   \
         const ChiaVec::CudaVec<type> &v1 = *static_cast<const ChiaVec::CudaVec<type> *>(op1->_ptr);                 \
         const ChiaVec::CudaVec<type> &v2 = *static_cast<const ChiaVec::CudaVec<type> *>(op2->_ptr);                 \
-        resultVec = v1.calculate(v2, ChiaVec::Types::ToDataType<type>::value, op);                                  \
+        resultVec = v1.calculate(v2, op);                                                                           \
     }
 
 #define CUDAVEC_VECS_IMPLEMENTATION(type)                                                                         \
