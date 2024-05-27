@@ -86,9 +86,9 @@ mod tests {
                 assert_eq!(*value_from_v2, i as i32);
 
                 let value_from_v2 = CudaVec_int32_t_get(addr_of_mut!(cuda_v2), i);
-                assert!(value_from_v2.is_null());
+                assert!(!value_from_v2.is_null());
                 let value_from_v2 = CudaVec_int32_t_get_const(addr_of!(cuda_v2), i);
-                assert!(value_from_v2.is_null());
+                assert!(!value_from_v2.is_null());
             }
 
             let value_from_v2 = Vec_int32_t_get(addr_of_mut!(v2), VALUE_LEN);
