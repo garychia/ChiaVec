@@ -56,8 +56,18 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+CUDAVEC_DECLARE_VECS(int8_t);
+CUDAVEC_DECLARE_VECS(int16_t);
 CUDAVEC_DECLARE_VECS(int32_t);
 CUDAVEC_DECLARE_VECS(int64_t);
+
+CUDAVEC_DECLARE_VECS(uint8_t);
+CUDAVEC_DECLARE_VECS(uint16_t);
+CUDAVEC_DECLARE_VECS(uint32_t);
+CUDAVEC_DECLARE_VECS(uint64_t);
+
+CUDAVEC_DECLARE_VECS(float);
+CUDAVEC_DECLARE_VECS(double);
 #ifdef __cplusplus
 }
 #endif
