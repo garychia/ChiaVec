@@ -3,15 +3,6 @@
 #include <iostream>
 
 template <class T>
-__global__ void vec_add(T *dst, const T *op1, const T *op2,
-                        std::size_t length) {
-  unsigned int i = threadIdx.x + blockIdx.x * blockDim.x;
-  if (i < length) {
-    dst[i] = op1[i] + op2[i];
-  }
-}
-
-template <class T>
 void printVec(const ChiaVec::Vec<T> &v) {
   std::cout << "[";
   for (std::size_t i = 0; i < v.len(); i++) {
@@ -25,20 +16,24 @@ void printVec(const ChiaVec::Vec<T> &v) {
 
 int main(void) {
   constexpr std::size_t length = 4096;
-  int nums[length];
+  int nums[length]; // Contains numbers from 0 to 4095.
 
+  // Populate the array.
   for (int i = 0; i < length; i++) {
     nums[i] = i;
   }
 
   ChiaVec::CudaVec<int> v1(nums, length, true), v2;
 
+  // v2 has the same elements as v1.
   for (int i = 0; i < length; i++) {
     v2.push(i, true);
   }
 
+  // v3[i] = v1[i] + v2[i] for i in [0..4095].
   ChiaVec::CudaVec<int> v3 = v1.calculate(v2, ChiaVec::Types::Operator::Pls);
 
+  // Print the elements in v1, v2 and v3.
   printVec(v1.clone());
   printVec(v2.clone());
   printVec(v3.clone());
