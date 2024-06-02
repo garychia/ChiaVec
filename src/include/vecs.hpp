@@ -6,6 +6,7 @@
 #include "types.hpp"
 #include "utilities.hpp"
 
+#include <algorithm>
 #include <optional>
 
 namespace ChiaVec {
