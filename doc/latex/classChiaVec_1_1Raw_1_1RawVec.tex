@@ -1,0 +1,357 @@
+\hypertarget{classChiaVec_1_1Raw_1_1RawVec}{}\doxysection{Chia\+Vec\+::Raw\+::Raw\+Vec$<$ T, Allocator $>$ Class Template Reference}
+\label{classChiaVec_1_1Raw_1_1RawVec}\index{ChiaVec::Raw::RawVec$<$ T, Allocator $>$@{ChiaVec::Raw::RawVec$<$ T, Allocator $>$}}
+
+
+A simple vector-\/like class that manages raw memory.  
+
+
+
+
+{\ttfamily \#include $<$rawvecs.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classChiaVec_1_1Raw_1_1RawVec_a955ede0b082ad1f5255d82e37194dd7a}\label{classChiaVec_1_1Raw_1_1RawVec_a955ede0b082ad1f5255d82e37194dd7a}} 
+\mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec_a955ede0b082ad1f5255d82e37194dd7a}{Raw\+Vec}} ()
+\begin{DoxyCompactList}\small\item\em Constructs an empty {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec_af90738ab005ad3d4b421171dbe81a2fe}{Raw\+Vec}} (std\+::size\+\_\+t length)
+\begin{DoxyCompactList}\small\item\em Constructs a {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object with the specified length. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec_a1a32656d3286db6969b9bd5543cb3939}{Raw\+Vec}} (const T $\ast$data, std\+::size\+\_\+t length, bool on\+Host)
+\begin{DoxyCompactList}\small\item\em Constructs a {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object from a raw memory block. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Other\+Allocator $>$ }\\\mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec_a1101c514bfab8219c94101a1aa620cba}{Raw\+Vec}} (const \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}$<$ T, Other\+Allocator $>$ \&other)
+\begin{DoxyCompactList}\small\item\em Constructs a {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object by copying another {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec_afa6023cb1f2484af73c552562fc6ca59}{Raw\+Vec}} (\mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}$<$ T, Allocator $>$ \&\&other)
+\begin{DoxyCompactList}\small\item\em Constructs a {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object by moving another {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classChiaVec_1_1Raw_1_1RawVec_af9c5b61b6429d023712b662b5174b0e9}\label{classChiaVec_1_1Raw_1_1RawVec_af9c5b61b6429d023712b662b5174b0e9}} 
+\mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec_af9c5b61b6429d023712b662b5174b0e9}{$\sim$\+Raw\+Vec}} ()
+\begin{DoxyCompactList}\small\item\em Destroys the {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object and releases the raw memory block. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classChiaVec_1_1Raw_1_1RawVec_a8faecd52030960af47058792f160b883}\label{classChiaVec_1_1Raw_1_1RawVec_a8faecd52030960af47058792f160b883}} 
+\mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}$<$ T, Allocator $>$ \& {\bfseries operator=} (const \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}$<$ T, Allocator $>$ \&other)
+\item 
+{\footnotesize template$<$class Other\+Allocator $>$ }\\\mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}$<$ T, Allocator $>$ \& \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec_aeb861f2c31a2b94f0670e65ffa457b54}{operator=}} (const \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}$<$ T, Other\+Allocator $>$ \&other)
+\begin{DoxyCompactList}\small\item\em Assigns the contents of another {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object to this {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}$<$ T, Allocator $>$ \& \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec_a9da2772fb0a57f8c6e0578a761b5f06c}{operator=}} (\mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}$<$ T, Allocator $>$ \&\&other)
+\begin{DoxyCompactList}\small\item\em Assigns the contents of another {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object to this {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object by moving. \end{DoxyCompactList}\item 
+T $\ast$ \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec_ad91ab69072029c09a9037a2183902f56}{ptr}} ()
+\begin{DoxyCompactList}\small\item\em Returns a pointer to the raw memory block. \end{DoxyCompactList}\item 
+const T $\ast$ \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec_aba84b5536a908ca53f0535e43db2f410}{ptr}} () const
+\begin{DoxyCompactList}\small\item\em Returns a const pointer to the raw memory block. \end{DoxyCompactList}\item 
+std\+::size\+\_\+t \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec_a12b106722b858b304e901a73a28e914e}{len}} () const
+\begin{DoxyCompactList}\small\item\em Returns the length of the raw memory block, in number of elements. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec_a6bcfbc036f9d70f96369104b2d0a57db}{resize}} (std\+::size\+\_\+t new\+Length)
+\begin{DoxyCompactList}\small\item\em Resizes the raw memory block to the specified length. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Itr $>$ }\\void \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec_a26bf19a26a96d00ef1766a21931cf4fe}{copy}} (Itr iter, std\+::size\+\_\+t length, bool on\+Host)
+\begin{DoxyCompactList}\small\item\em Copies the elements from an iterator range to the raw memory block. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec_a0c58b6bcdd30f3ffc3cc66b97b407e2f}{copy\+Memory}} (const T $\ast$\mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec_ad91ab69072029c09a9037a2183902f56}{ptr}}, std\+::size\+\_\+t length, bool on\+Host)
+\begin{DoxyCompactList}\small\item\em Copies the elements from a raw memory block to the raw memory block of this {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Other\+Allocator $>$ }\\void \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec_a34a68a331a0df1745c10e5ff6a740e5f}{copy\+To}} (\mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}$<$ T, Other\+Allocator $>$ \&other) const
+\begin{DoxyCompactList}\small\item\em Copies the contents of this {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object to another {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Other\+Allocator $>$ }\\void \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec_a13f7201e4704c8a4387c078daaa3ba8b}{copy\+From}} (const \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}$<$ T, Other\+Allocator $>$ \&other)
+\begin{DoxyCompactList}\small\item\em Copies the contents of another {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object to this {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Other\+Allocator  = Allocator$>$ }\\\mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}$<$ T, Other\+Allocator $>$ \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec_a6bc6f71404d83e1245fbe923306177c0}{clone}} () const
+\begin{DoxyCompactList}\small\item\em Creates a clone of this {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object using a different allocator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T, class Allocator = Memory\+::\+Default\+Allocator$>$\newline
+class Chia\+Vec\+::\+Raw\+::\+Raw\+Vec$<$ T, Allocator $>$}
+
+A simple vector-\/like class that manages raw memory. 
+
+The {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} class is a simple vector-\/like class that manages raw memory using a custom memory allocator. It provides basic functionality for allocating, resizing, and copying memory, as well as some convenience methods for working with the raw memory.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of elements stored in the vector. \\
+\hline
+{\em Allocator} & The memory allocator to use for managing the raw memory. Defaults to {\ttfamily \mbox{\hyperlink{structChiaVec_1_1Memory_1_1DefaultAllocator}{Memory\+::\+Default\+Allocator}}}. \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classChiaVec_1_1Raw_1_1RawVec_af90738ab005ad3d4b421171dbe81a2fe}\label{classChiaVec_1_1Raw_1_1RawVec_af90738ab005ad3d4b421171dbe81a2fe}} 
+\index{ChiaVec::Raw::RawVec$<$ T, Allocator $>$@{ChiaVec::Raw::RawVec$<$ T, Allocator $>$}!RawVec@{RawVec}}
+\index{RawVec@{RawVec}!ChiaVec::Raw::RawVec$<$ T, Allocator $>$@{ChiaVec::Raw::RawVec$<$ T, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{RawVec()}{RawVec()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$class T , class Allocator  = Memory\+::\+Default\+Allocator$>$ \\
+\mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Chia\+Vec\+::\+Raw\+::\+Raw\+Vec}}$<$ T, Allocator $>$\+::\mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}} (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs a {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object with the specified length. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em length} & The initial length of the raw memory block. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classChiaVec_1_1Raw_1_1RawVec_a1a32656d3286db6969b9bd5543cb3939}\label{classChiaVec_1_1Raw_1_1RawVec_a1a32656d3286db6969b9bd5543cb3939}} 
+\index{ChiaVec::Raw::RawVec$<$ T, Allocator $>$@{ChiaVec::Raw::RawVec$<$ T, Allocator $>$}!RawVec@{RawVec}}
+\index{RawVec@{RawVec}!ChiaVec::Raw::RawVec$<$ T, Allocator $>$@{ChiaVec::Raw::RawVec$<$ T, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{RawVec()}{RawVec()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$class T , class Allocator  = Memory\+::\+Default\+Allocator$>$ \\
+\mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Chia\+Vec\+::\+Raw\+::\+Raw\+Vec}}$<$ T, Allocator $>$\+::\mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}} (\begin{DoxyParamCaption}\item[{const T $\ast$}]{data,  }\item[{std\+::size\+\_\+t}]{length,  }\item[{bool}]{on\+Host }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs a {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object from a raw memory block. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The raw memory block to copy. \\
+\hline
+{\em length} & The length of the raw memory block. \\
+\hline
+{\em on\+Host} & Indicates whether the raw memory block is located on the host (CPU) or the device (GPU). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classChiaVec_1_1Raw_1_1RawVec_a1101c514bfab8219c94101a1aa620cba}\label{classChiaVec_1_1Raw_1_1RawVec_a1101c514bfab8219c94101a1aa620cba}} 
+\index{ChiaVec::Raw::RawVec$<$ T, Allocator $>$@{ChiaVec::Raw::RawVec$<$ T, Allocator $>$}!RawVec@{RawVec}}
+\index{RawVec@{RawVec}!ChiaVec::Raw::RawVec$<$ T, Allocator $>$@{ChiaVec::Raw::RawVec$<$ T, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{RawVec()}{RawVec()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$class T , class Allocator  = Memory\+::\+Default\+Allocator$>$ \\
+template$<$class Other\+Allocator $>$ \\
+\mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Chia\+Vec\+::\+Raw\+::\+Raw\+Vec}}$<$ T, Allocator $>$\+::\mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}$<$ T, Other\+Allocator $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs a {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object by copying another {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object to copy. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classChiaVec_1_1Raw_1_1RawVec_afa6023cb1f2484af73c552562fc6ca59}\label{classChiaVec_1_1Raw_1_1RawVec_afa6023cb1f2484af73c552562fc6ca59}} 
+\index{ChiaVec::Raw::RawVec$<$ T, Allocator $>$@{ChiaVec::Raw::RawVec$<$ T, Allocator $>$}!RawVec@{RawVec}}
+\index{RawVec@{RawVec}!ChiaVec::Raw::RawVec$<$ T, Allocator $>$@{ChiaVec::Raw::RawVec$<$ T, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{RawVec()}{RawVec()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$class T , class Allocator  = Memory\+::\+Default\+Allocator$>$ \\
+\mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Chia\+Vec\+::\+Raw\+::\+Raw\+Vec}}$<$ T, Allocator $>$\+::\mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}$<$ T, Allocator $>$ \&\&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs a {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object by moving another {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object to move. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classChiaVec_1_1Raw_1_1RawVec_a6bc6f71404d83e1245fbe923306177c0}\label{classChiaVec_1_1Raw_1_1RawVec_a6bc6f71404d83e1245fbe923306177c0}} 
+\index{ChiaVec::Raw::RawVec$<$ T, Allocator $>$@{ChiaVec::Raw::RawVec$<$ T, Allocator $>$}!clone@{clone}}
+\index{clone@{clone}!ChiaVec::Raw::RawVec$<$ T, Allocator $>$@{ChiaVec::Raw::RawVec$<$ T, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily template$<$class T , class Allocator  = Memory\+::\+Default\+Allocator$>$ \\
+template$<$class Other\+Allocator  = Allocator$>$ \\
+\mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}$<$T, Other\+Allocator$>$ \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Chia\+Vec\+::\+Raw\+::\+Raw\+Vec}}$<$ T, Allocator $>$\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creates a clone of this {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object using a different allocator. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Other\+Allocator} & The allocator type to use for the cloned {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+A new {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object that is a clone of this {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classChiaVec_1_1Raw_1_1RawVec_a26bf19a26a96d00ef1766a21931cf4fe}\label{classChiaVec_1_1Raw_1_1RawVec_a26bf19a26a96d00ef1766a21931cf4fe}} 
+\index{ChiaVec::Raw::RawVec$<$ T, Allocator $>$@{ChiaVec::Raw::RawVec$<$ T, Allocator $>$}!copy@{copy}}
+\index{copy@{copy}!ChiaVec::Raw::RawVec$<$ T, Allocator $>$@{ChiaVec::Raw::RawVec$<$ T, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{copy()}{copy()}}
+{\footnotesize\ttfamily template$<$class T , class Allocator  = Memory\+::\+Default\+Allocator$>$ \\
+template$<$class Itr $>$ \\
+void \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Chia\+Vec\+::\+Raw\+::\+Raw\+Vec}}$<$ T, Allocator $>$\+::copy (\begin{DoxyParamCaption}\item[{Itr}]{iter,  }\item[{std\+::size\+\_\+t}]{length,  }\item[{bool}]{on\+Host }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Copies the elements from an iterator range to the raw memory block. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Itr} & The iterator type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em iter} & The beginning of the iterator range to copy. \\
+\hline
+{\em length} & The number of elements to copy. \\
+\hline
+{\em on\+Host} & Indicates whether the source elements are located on the host (CPU) or the device (GPU). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classChiaVec_1_1Raw_1_1RawVec_a13f7201e4704c8a4387c078daaa3ba8b}\label{classChiaVec_1_1Raw_1_1RawVec_a13f7201e4704c8a4387c078daaa3ba8b}} 
+\index{ChiaVec::Raw::RawVec$<$ T, Allocator $>$@{ChiaVec::Raw::RawVec$<$ T, Allocator $>$}!copyFrom@{copyFrom}}
+\index{copyFrom@{copyFrom}!ChiaVec::Raw::RawVec$<$ T, Allocator $>$@{ChiaVec::Raw::RawVec$<$ T, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{copyFrom()}{copyFrom()}}
+{\footnotesize\ttfamily template$<$class T , class Allocator  = Memory\+::\+Default\+Allocator$>$ \\
+template$<$class Other\+Allocator $>$ \\
+void \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Chia\+Vec\+::\+Raw\+::\+Raw\+Vec}}$<$ T, Allocator $>$\+::copy\+From (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}$<$ T, Other\+Allocator $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Copies the contents of another {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object to this {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Other\+Allocator} & The allocator type of the other {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object to copy the contents from. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classChiaVec_1_1Raw_1_1RawVec_a0c58b6bcdd30f3ffc3cc66b97b407e2f}\label{classChiaVec_1_1Raw_1_1RawVec_a0c58b6bcdd30f3ffc3cc66b97b407e2f}} 
+\index{ChiaVec::Raw::RawVec$<$ T, Allocator $>$@{ChiaVec::Raw::RawVec$<$ T, Allocator $>$}!copyMemory@{copyMemory}}
+\index{copyMemory@{copyMemory}!ChiaVec::Raw::RawVec$<$ T, Allocator $>$@{ChiaVec::Raw::RawVec$<$ T, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{copyMemory()}{copyMemory()}}
+{\footnotesize\ttfamily template$<$class T , class Allocator  = Memory\+::\+Default\+Allocator$>$ \\
+void \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Chia\+Vec\+::\+Raw\+::\+Raw\+Vec}}$<$ T, Allocator $>$\+::copy\+Memory (\begin{DoxyParamCaption}\item[{const T $\ast$}]{ptr,  }\item[{std\+::size\+\_\+t}]{length,  }\item[{bool}]{on\+Host }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Copies the elements from a raw memory block to the raw memory block of this {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptr} & The pointer to the raw memory block to copy. \\
+\hline
+{\em length} & The length of the raw memory block to copy. \\
+\hline
+{\em on\+Host} & Indicates whether the source memory block is located on the host (CPU) or the device (GPU). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classChiaVec_1_1Raw_1_1RawVec_a34a68a331a0df1745c10e5ff6a740e5f}\label{classChiaVec_1_1Raw_1_1RawVec_a34a68a331a0df1745c10e5ff6a740e5f}} 
+\index{ChiaVec::Raw::RawVec$<$ T, Allocator $>$@{ChiaVec::Raw::RawVec$<$ T, Allocator $>$}!copyTo@{copyTo}}
+\index{copyTo@{copyTo}!ChiaVec::Raw::RawVec$<$ T, Allocator $>$@{ChiaVec::Raw::RawVec$<$ T, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{copyTo()}{copyTo()}}
+{\footnotesize\ttfamily template$<$class T , class Allocator  = Memory\+::\+Default\+Allocator$>$ \\
+template$<$class Other\+Allocator $>$ \\
+void \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Chia\+Vec\+::\+Raw\+::\+Raw\+Vec}}$<$ T, Allocator $>$\+::copy\+To (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}$<$ T, Other\+Allocator $>$ \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Copies the contents of this {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object to another {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Other\+Allocator} & The allocator type of the other {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object to copy the contents to. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classChiaVec_1_1Raw_1_1RawVec_a12b106722b858b304e901a73a28e914e}\label{classChiaVec_1_1Raw_1_1RawVec_a12b106722b858b304e901a73a28e914e}} 
+\index{ChiaVec::Raw::RawVec$<$ T, Allocator $>$@{ChiaVec::Raw::RawVec$<$ T, Allocator $>$}!len@{len}}
+\index{len@{len}!ChiaVec::Raw::RawVec$<$ T, Allocator $>$@{ChiaVec::Raw::RawVec$<$ T, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{len()}{len()}}
+{\footnotesize\ttfamily template$<$class T , class Allocator  = Memory\+::\+Default\+Allocator$>$ \\
+std\+::size\+\_\+t \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Chia\+Vec\+::\+Raw\+::\+Raw\+Vec}}$<$ T, Allocator $>$\+::len (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the length of the raw memory block, in number of elements. 
+
+\begin{DoxyReturn}{Returns}
+The length of the raw memory block. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classChiaVec_1_1Raw_1_1RawVec_aeb861f2c31a2b94f0670e65ffa457b54}\label{classChiaVec_1_1Raw_1_1RawVec_aeb861f2c31a2b94f0670e65ffa457b54}} 
+\index{ChiaVec::Raw::RawVec$<$ T, Allocator $>$@{ChiaVec::Raw::RawVec$<$ T, Allocator $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!ChiaVec::Raw::RawVec$<$ T, Allocator $>$@{ChiaVec::Raw::RawVec$<$ T, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T , class Allocator  = Memory\+::\+Default\+Allocator$>$ \\
+template$<$class Other\+Allocator $>$ \\
+\mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}$<$T, Allocator$>$\& \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Chia\+Vec\+::\+Raw\+::\+Raw\+Vec}}$<$ T, Allocator $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}$<$ T, Other\+Allocator $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Assigns the contents of another {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object to this {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object to assign. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the modified {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classChiaVec_1_1Raw_1_1RawVec_a9da2772fb0a57f8c6e0578a761b5f06c}\label{classChiaVec_1_1Raw_1_1RawVec_a9da2772fb0a57f8c6e0578a761b5f06c}} 
+\index{ChiaVec::Raw::RawVec$<$ T, Allocator $>$@{ChiaVec::Raw::RawVec$<$ T, Allocator $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!ChiaVec::Raw::RawVec$<$ T, Allocator $>$@{ChiaVec::Raw::RawVec$<$ T, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T , class Allocator  = Memory\+::\+Default\+Allocator$>$ \\
+\mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}$<$T, Allocator$>$\& \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Chia\+Vec\+::\+Raw\+::\+Raw\+Vec}}$<$ T, Allocator $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}$<$ T, Allocator $>$ \&\&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Assigns the contents of another {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object to this {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object by moving. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object to move. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the modified {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+Vec}}} object. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classChiaVec_1_1Raw_1_1RawVec_ad91ab69072029c09a9037a2183902f56}\label{classChiaVec_1_1Raw_1_1RawVec_ad91ab69072029c09a9037a2183902f56}} 
+\index{ChiaVec::Raw::RawVec$<$ T, Allocator $>$@{ChiaVec::Raw::RawVec$<$ T, Allocator $>$}!ptr@{ptr}}
+\index{ptr@{ptr}!ChiaVec::Raw::RawVec$<$ T, Allocator $>$@{ChiaVec::Raw::RawVec$<$ T, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{ptr()}{ptr()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T , class Allocator  = Memory\+::\+Default\+Allocator$>$ \\
+T$\ast$ \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Chia\+Vec\+::\+Raw\+::\+Raw\+Vec}}$<$ T, Allocator $>$\+::ptr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns a pointer to the raw memory block. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to the raw memory block. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classChiaVec_1_1Raw_1_1RawVec_aba84b5536a908ca53f0535e43db2f410}\label{classChiaVec_1_1Raw_1_1RawVec_aba84b5536a908ca53f0535e43db2f410}} 
+\index{ChiaVec::Raw::RawVec$<$ T, Allocator $>$@{ChiaVec::Raw::RawVec$<$ T, Allocator $>$}!ptr@{ptr}}
+\index{ptr@{ptr}!ChiaVec::Raw::RawVec$<$ T, Allocator $>$@{ChiaVec::Raw::RawVec$<$ T, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{ptr()}{ptr()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T , class Allocator  = Memory\+::\+Default\+Allocator$>$ \\
+const T$\ast$ \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Chia\+Vec\+::\+Raw\+::\+Raw\+Vec}}$<$ T, Allocator $>$\+::ptr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns a const pointer to the raw memory block. 
+
+\begin{DoxyReturn}{Returns}
+A const pointer to the raw memory block. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classChiaVec_1_1Raw_1_1RawVec_a6bcfbc036f9d70f96369104b2d0a57db}\label{classChiaVec_1_1Raw_1_1RawVec_a6bcfbc036f9d70f96369104b2d0a57db}} 
+\index{ChiaVec::Raw::RawVec$<$ T, Allocator $>$@{ChiaVec::Raw::RawVec$<$ T, Allocator $>$}!resize@{resize}}
+\index{resize@{resize}!ChiaVec::Raw::RawVec$<$ T, Allocator $>$@{ChiaVec::Raw::RawVec$<$ T, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{resize()}{resize()}}
+{\footnotesize\ttfamily template$<$class T , class Allocator  = Memory\+::\+Default\+Allocator$>$ \\
+void \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Chia\+Vec\+::\+Raw\+::\+Raw\+Vec}}$<$ T, Allocator $>$\+::resize (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{new\+Length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Resizes the raw memory block to the specified length. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Length} & The new length of the raw memory block. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/include/rawvecs.\+hpp\end{DoxyCompactItemize}

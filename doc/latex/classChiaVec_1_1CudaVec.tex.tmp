@@ -1,0 +1,190 @@
+\hypertarget{classChiaVec_1_1CudaVec}{}\doxysection{Chia\+Vec\+::Cuda\+Vec$<$ T, Cuda\+Allocator, Storage $>$ Class Template Reference}
+\label{classChiaVec_1_1CudaVec}\index{ChiaVec::CudaVec$<$ T, CudaAllocator, Storage $>$@{ChiaVec::CudaVec$<$ T, CudaAllocator, Storage $>$}}
+
+
+A specialized vector class for CUDA-\/based computations.  
+
+
+
+
+{\ttfamily \#include $<$vecs.\+hpp$>$}
+
+
+
+Inheritance diagram for Chia\+Vec\+::Cuda\+Vec$<$ T, Cuda\+Allocator, Storage $>$\+:
+% FIG 0
+
+
+Collaboration diagram for Chia\+Vec\+::Cuda\+Vec$<$ T, Cuda\+Allocator, Storage $>$\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classChiaVec_1_1CudaVec_a31370451ab394522baa66ce9b62a557d}{Cuda\+Vec}} (const \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}} \&other)
+\begin{DoxyCompactList}\small\item\em Performs element-\/wise operations between two \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}} instances and returns a new \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}} with the result. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classChiaVec_1_1CudaVec_a9038c0429c719580eba5e1e9b309eef8}{Cuda\+Vec}} (\mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}} \&\&other)
+\begin{DoxyCompactList}\small\item\em Performs element-\/wise operations between the current \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}} instance and another \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}} instance in-\/place. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}}$<$ T, Cuda\+Allocator, Storage $>$ \& \mbox{\hyperlink{classChiaVec_1_1CudaVec_a51f082e95bb4852c79ac4971914d09de}{operator=}} (const \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}}$<$ T, Cuda\+Allocator, Storage $>$ \&other)
+\begin{DoxyCompactList}\small\item\em Copy assignment operator for \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}}$<$ T, Cuda\+Allocator, Storage $>$ \& \mbox{\hyperlink{classChiaVec_1_1CudaVec_a4600397946abab0930a631c0f3554982}{operator=}} (\mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}}$<$ T, Cuda\+Allocator, Storage $>$ \&\&other)
+\begin{DoxyCompactList}\small\item\em Move assignment operator for \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}}$<$ T, Cuda\+Allocator, Storage $>$ \mbox{\hyperlink{classChiaVec_1_1CudaVec_a1267a0bc99bd4ddd4a67d1fc930eab64}{calculate}} (const \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}}$<$ T, Cuda\+Allocator, Storage $>$ \&other, Types\+::\+Operator op) const
+\begin{DoxyCompactList}\small\item\em Performs an element-\/wise operation on two \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}} objects. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classChiaVec_1_1CudaVec_a3755433612e6bd58a5f2540cb12d4064}{calculate\+Inplace}} (const \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}}$<$ T, Cuda\+Allocator, Storage $>$ \&other, Types\+::\+Data\+Type type, Types\+::\+Operator op)
+\begin{DoxyCompactList}\small\item\em Performs an in-\/place element-\/wise operation on the current \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T, class Cuda\+Allocator = Memory\+::\+Default\+Cuda\+Allocator, class Storage = Raw\+::\+Cuda\+Raw\+Vec$<$\+T, Cuda\+Allocator$>$$>$\newline
+class Chia\+Vec\+::\+Cuda\+Vec$<$ T, Cuda\+Allocator, Storage $>$}
+
+A specialized vector class for CUDA-\/based computations. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of elements stored in the vector. \\
+\hline
+{\em Cuda\+Allocator} & The CUDA memory allocator used for the vector\textquotesingle{}s storage. Defaults to {\ttfamily \mbox{\hyperlink{structChiaVec_1_1Memory_1_1DefaultCudaAllocator}{Memory\+::\+Default\+Cuda\+Allocator}}}. \\
+\hline
+{\em Storage} & The storage type used for the vector\textquotesingle{}s data. Defaults to {\ttfamily Raw\+::\+Cuda\+Raw\+Vec$<$T, Cuda\+Allocator$>$}. \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classChiaVec_1_1CudaVec_a31370451ab394522baa66ce9b62a557d}\label{classChiaVec_1_1CudaVec_a31370451ab394522baa66ce9b62a557d}} 
+\index{ChiaVec::CudaVec$<$ T, CudaAllocator, Storage $>$@{ChiaVec::CudaVec$<$ T, CudaAllocator, Storage $>$}!CudaVec@{CudaVec}}
+\index{CudaVec@{CudaVec}!ChiaVec::CudaVec$<$ T, CudaAllocator, Storage $>$@{ChiaVec::CudaVec$<$ T, CudaAllocator, Storage $>$}}
+\doxysubsubsection{\texorpdfstring{CudaVec()}{CudaVec()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T , class Cuda\+Allocator  = Memory\+::\+Default\+Cuda\+Allocator, class Storage  = Raw\+::\+Cuda\+Raw\+Vec$<$\+T, Cuda\+Allocator$>$$>$ \\
+\mbox{\hyperlink{classChiaVec_1_1CudaVec}{Chia\+Vec\+::\+Cuda\+Vec}}$<$ T, Cuda\+Allocator, Storage $>$\+::\mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}}$<$ T, Cuda\+Allocator, Storage $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Performs element-\/wise operations between two \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}} instances and returns a new \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}} with the result. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}} instance to perform the operation with. \\
+\hline
+{\em op} & The operation to perform (e.\+g., addition, subtraction). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}} instance with the result of the operation. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classChiaVec_1_1CudaVec_a9038c0429c719580eba5e1e9b309eef8}\label{classChiaVec_1_1CudaVec_a9038c0429c719580eba5e1e9b309eef8}} 
+\index{ChiaVec::CudaVec$<$ T, CudaAllocator, Storage $>$@{ChiaVec::CudaVec$<$ T, CudaAllocator, Storage $>$}!CudaVec@{CudaVec}}
+\index{CudaVec@{CudaVec}!ChiaVec::CudaVec$<$ T, CudaAllocator, Storage $>$@{ChiaVec::CudaVec$<$ T, CudaAllocator, Storage $>$}}
+\doxysubsubsection{\texorpdfstring{CudaVec()}{CudaVec()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T , class Cuda\+Allocator  = Memory\+::\+Default\+Cuda\+Allocator, class Storage  = Raw\+::\+Cuda\+Raw\+Vec$<$\+T, Cuda\+Allocator$>$$>$ \\
+\mbox{\hyperlink{classChiaVec_1_1CudaVec}{Chia\+Vec\+::\+Cuda\+Vec}}$<$ T, Cuda\+Allocator, Storage $>$\+::\mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}}$<$ T, Cuda\+Allocator, Storage $>$ \&\&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Performs element-\/wise operations between the current \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}} instance and another \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}} instance in-\/place. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}} instance to perform the operation with. \\
+\hline
+{\em type} & The data type of the elements. \\
+\hline
+{\em op} & The operation to perform (e.\+g., addition, subtraction). \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classChiaVec_1_1CudaVec_a1267a0bc99bd4ddd4a67d1fc930eab64}\label{classChiaVec_1_1CudaVec_a1267a0bc99bd4ddd4a67d1fc930eab64}} 
+\index{ChiaVec::CudaVec$<$ T, CudaAllocator, Storage $>$@{ChiaVec::CudaVec$<$ T, CudaAllocator, Storage $>$}!calculate@{calculate}}
+\index{calculate@{calculate}!ChiaVec::CudaVec$<$ T, CudaAllocator, Storage $>$@{ChiaVec::CudaVec$<$ T, CudaAllocator, Storage $>$}}
+\doxysubsubsection{\texorpdfstring{calculate()}{calculate()}}
+{\footnotesize\ttfamily template$<$class T , class Cuda\+Allocator  = Memory\+::\+Default\+Cuda\+Allocator, class Storage  = Raw\+::\+Cuda\+Raw\+Vec$<$\+T, Cuda\+Allocator$>$$>$ \\
+\mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}}$<$T, Cuda\+Allocator, Storage$>$ \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Chia\+Vec\+::\+Cuda\+Vec}}$<$ T, Cuda\+Allocator, Storage $>$\+::calculate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}}$<$ T, Cuda\+Allocator, Storage $>$ \&}]{other,  }\item[{Types\+::\+Operator}]{op }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Performs an element-\/wise operation on two \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}} objects. 
+
+This function takes two \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}} objects and an operation type, and returns a new \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}} object containing the result of applying the operation to the corresponding elements of the input vectors.
+
+The length of the result vector is set to the minimum of the lengths of the two input vectors.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The second \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}} object to perform the operation with. \\
+\hline
+{\em op} & The operation to perform on the elements of the input vectors. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}} object containing the result of the operation. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classChiaVec_1_1CudaVec_a3755433612e6bd58a5f2540cb12d4064}\label{classChiaVec_1_1CudaVec_a3755433612e6bd58a5f2540cb12d4064}} 
+\index{ChiaVec::CudaVec$<$ T, CudaAllocator, Storage $>$@{ChiaVec::CudaVec$<$ T, CudaAllocator, Storage $>$}!calculateInplace@{calculateInplace}}
+\index{calculateInplace@{calculateInplace}!ChiaVec::CudaVec$<$ T, CudaAllocator, Storage $>$@{ChiaVec::CudaVec$<$ T, CudaAllocator, Storage $>$}}
+\doxysubsubsection{\texorpdfstring{calculateInplace()}{calculateInplace()}}
+{\footnotesize\ttfamily template$<$class T , class Cuda\+Allocator  = Memory\+::\+Default\+Cuda\+Allocator, class Storage  = Raw\+::\+Cuda\+Raw\+Vec$<$\+T, Cuda\+Allocator$>$$>$ \\
+void \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Chia\+Vec\+::\+Cuda\+Vec}}$<$ T, Cuda\+Allocator, Storage $>$\+::calculate\+Inplace (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}}$<$ T, Cuda\+Allocator, Storage $>$ \&}]{other,  }\item[{Types\+::\+Data\+Type}]{type,  }\item[{Types\+::\+Operator}]{op }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Performs an in-\/place element-\/wise operation on the current \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}}. 
+
+This function takes another \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}} object, an operation type, and a data type, and applies the operation to the corresponding elements of the current \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}} and the other \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}}. The operation is performed in-\/place, modifying the current \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}}.
+
+The operation is performed on the minimum length of the two input vectors.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The second \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}} object to perform the operation with. \\
+\hline
+{\em type} & The data type of the elements in the input vectors. \\
+\hline
+{\em op} & The operation to perform on the elements of the input vectors. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classChiaVec_1_1CudaVec_a51f082e95bb4852c79ac4971914d09de}\label{classChiaVec_1_1CudaVec_a51f082e95bb4852c79ac4971914d09de}} 
+\index{ChiaVec::CudaVec$<$ T, CudaAllocator, Storage $>$@{ChiaVec::CudaVec$<$ T, CudaAllocator, Storage $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!ChiaVec::CudaVec$<$ T, CudaAllocator, Storage $>$@{ChiaVec::CudaVec$<$ T, CudaAllocator, Storage $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T , class Cuda\+Allocator  = Memory\+::\+Default\+Cuda\+Allocator, class Storage  = Raw\+::\+Cuda\+Raw\+Vec$<$\+T, Cuda\+Allocator$>$$>$ \\
+\mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}}$<$T, Cuda\+Allocator, Storage$>$\& \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Chia\+Vec\+::\+Cuda\+Vec}}$<$ T, Cuda\+Allocator, Storage $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}}$<$ T, Cuda\+Allocator, Storage $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Copy assignment operator for \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}} object to copy from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the current \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}} object after the assignment. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classChiaVec_1_1CudaVec_a4600397946abab0930a631c0f3554982}\label{classChiaVec_1_1CudaVec_a4600397946abab0930a631c0f3554982}} 
+\index{ChiaVec::CudaVec$<$ T, CudaAllocator, Storage $>$@{ChiaVec::CudaVec$<$ T, CudaAllocator, Storage $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!ChiaVec::CudaVec$<$ T, CudaAllocator, Storage $>$@{ChiaVec::CudaVec$<$ T, CudaAllocator, Storage $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T , class Cuda\+Allocator  = Memory\+::\+Default\+Cuda\+Allocator, class Storage  = Raw\+::\+Cuda\+Raw\+Vec$<$\+T, Cuda\+Allocator$>$$>$ \\
+\mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}}$<$T, Cuda\+Allocator, Storage$>$\& \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Chia\+Vec\+::\+Cuda\+Vec}}$<$ T, Cuda\+Allocator, Storage $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}}$<$ T, Cuda\+Allocator, Storage $>$ \&\&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Move assignment operator for \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}} object to move from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the current \mbox{\hyperlink{classChiaVec_1_1CudaVec}{Cuda\+Vec}} object after the assignment. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/include/vecs.\+hpp\end{DoxyCompactItemize}

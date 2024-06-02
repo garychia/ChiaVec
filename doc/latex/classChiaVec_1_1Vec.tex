@@ -1,0 +1,468 @@
+\hypertarget{classChiaVec_1_1Vec}{}\doxysection{Chia\+Vec\+::Vec$<$ T, Allocator, Storage $>$ Class Template Reference}
+\label{classChiaVec_1_1Vec}\index{ChiaVec::Vec$<$ T, Allocator, Storage $>$@{ChiaVec::Vec$<$ T, Allocator, Storage $>$}}
+
+
+A generic vector data structure that supports different memory allocators and storage types.  
+
+
+
+
+{\ttfamily \#include $<$vecs.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classChiaVec_1_1Vec_a1679f64c7444b1692c69ce80d22f6a23}\label{classChiaVec_1_1Vec_a1679f64c7444b1692c69ce80d22f6a23}} 
+\mbox{\hyperlink{classChiaVec_1_1Vec_a1679f64c7444b1692c69ce80d22f6a23}{Vec}} ()
+\begin{DoxyCompactList}\small\item\em Constructs an empty vector. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classChiaVec_1_1Vec_ae6a53823914b760ef1ccc49127df6ef5}{Vec}} (std\+::size\+\_\+t capacity)
+\begin{DoxyCompactList}\small\item\em Constructs a vector with a specified initial capacity. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classChiaVec_1_1Vec_a5fffe134f9a95c7ca313f40357ebd208}{Vec}} (const T $\ast$data, std\+::size\+\_\+t length, bool on\+Host)
+\begin{DoxyCompactList}\small\item\em Constructs a vector from a raw data pointer and length. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classChiaVec_1_1Vec_aec761b72f9188cd0ef5398d814298b09}{Vec}} (std\+::initializer\+\_\+list$<$ T $>$ l)
+\begin{DoxyCompactList}\small\item\em Constructs a vector from an initializer list. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Other\+Allocator , class Other\+Storage $>$ }\\\mbox{\hyperlink{classChiaVec_1_1Vec_a389fdb43edde47bc6fd79156b057e72c}{Vec}} (const \mbox{\hyperlink{classChiaVec_1_1Vec}{Vec}}$<$ T, Other\+Allocator, Other\+Storage $>$ \&other)
+\begin{DoxyCompactList}\small\item\em Constructs a vector from another vector. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classChiaVec_1_1Vec_acfdf50e3fe7b450ea39b5576f03680e4}{Vec}} (\mbox{\hyperlink{classChiaVec_1_1Vec}{Vec}}$<$ T, Allocator, Storage $>$ \&\&other)
+\begin{DoxyCompactList}\small\item\em Move constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classChiaVec_1_1Vec}{Vec}}$<$ T, Allocator, Storage $>$ \& \mbox{\hyperlink{classChiaVec_1_1Vec_a15912ae318821f04c6e576fddff4f180}{operator=}} (const \mbox{\hyperlink{classChiaVec_1_1Vec}{Vec}}$<$ T, Allocator, Storage $>$ \&other)
+\begin{DoxyCompactList}\small\item\em Copy assignment operator. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Other\+Allocator , class Other\+Storage $>$ }\\\mbox{\hyperlink{classChiaVec_1_1Vec}{Vec}}$<$ T, Allocator, Storage $>$ \& \mbox{\hyperlink{classChiaVec_1_1Vec_afa121e4e9b636f2192632a25989e83a2}{operator=}} (const \mbox{\hyperlink{classChiaVec_1_1Vec}{Vec}}$<$ T, Other\+Allocator, Other\+Storage $>$ \&other)
+\begin{DoxyCompactList}\small\item\em Copy assignment operator for vectors with different allocators and storage types. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classChiaVec_1_1Vec}{Vec}}$<$ T, Allocator, Storage $>$ \& \mbox{\hyperlink{classChiaVec_1_1Vec_a6beb91851098b2dc48bc7cd49178a5df}{operator=}} (\mbox{\hyperlink{classChiaVec_1_1Vec}{Vec}}$<$ T, Allocator, Storage $>$ \&\&other)
+\begin{DoxyCompactList}\small\item\em Move assignment operator. \end{DoxyCompactList}\item 
+virtual T \& \mbox{\hyperlink{classChiaVec_1_1Vec_ae2046a3b12e69bec4cc92ce73d2ec026}{operator\mbox{[}$\,$\mbox{]}}} (std\+::size\+\_\+t index)
+\begin{DoxyCompactList}\small\item\em Returns a reference to the element at the specified index. \end{DoxyCompactList}\item 
+virtual const T \& \mbox{\hyperlink{classChiaVec_1_1Vec_a947bd20b410b9fca5f44b67a1cf0f62b}{operator\mbox{[}$\,$\mbox{]}}} (std\+::size\+\_\+t index) const
+\begin{DoxyCompactList}\small\item\em Returns a reference to the element at the specified index. \end{DoxyCompactList}\item 
+std\+::size\+\_\+t \mbox{\hyperlink{classChiaVec_1_1Vec_ad3439cea781ad9d44c49c81257098f2b}{len}} () const
+\begin{DoxyCompactList}\small\item\em Returns the length (number of elements) of the vector. \end{DoxyCompactList}\item 
+std\+::optional$<$ T $\ast$ $>$ \mbox{\hyperlink{classChiaVec_1_1Vec_a9d41d6796ecafcc8a715206abfdb210c}{get}} (std\+::size\+\_\+t index)
+\begin{DoxyCompactList}\small\item\em Retrieves a pointer to the element at the specified index. \end{DoxyCompactList}\item 
+std\+::optional$<$ const T $\ast$ $>$ \mbox{\hyperlink{classChiaVec_1_1Vec_a9589c1646af0fc29e0e7f9286c498dba}{get\+Const}} (std\+::size\+\_\+t index) const
+\begin{DoxyCompactList}\small\item\em Retrieves a const pointer to the element at the specified index. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class U $>$ }\\void \mbox{\hyperlink{classChiaVec_1_1Vec_ae5f8c8df2ce53ebd8cba16c9fdae151c}{push}} (U \&\&element, bool on\+Host)
+\begin{DoxyCompactList}\small\item\em Adds a new element to the end of the vector. \end{DoxyCompactList}\item 
+virtual std\+::optional$<$ T $>$ \mbox{\hyperlink{classChiaVec_1_1Vec_ae9efaac15c575c122db2c16979e5cd00}{pop}} ()
+\begin{DoxyCompactList}\small\item\em Removes and returns the last element from the vector. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Other\+Allocator , class Other\+Storage $>$ }\\void \mbox{\hyperlink{classChiaVec_1_1Vec_a16d7af9f631b265e450024bef7fe3c54}{copy\+To}} (\mbox{\hyperlink{classChiaVec_1_1Vec}{Vec}}$<$ T, Other\+Allocator, Other\+Storage $>$ \&vec) const
+\begin{DoxyCompactList}\small\item\em Copies the contents of the current vector to another vector. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Other\+Allocator , class Other\+Storage $>$ }\\void \mbox{\hyperlink{classChiaVec_1_1Vec_a22b7a8f5fe1ebede52816ab83680a7a1}{copy\+From}} (const \mbox{\hyperlink{classChiaVec_1_1Vec}{Vec}}$<$ T, Other\+Allocator, Other\+Storage $>$ \&vec)
+\begin{DoxyCompactList}\small\item\em Copies the contents of another vector to the current vector. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Other\+Allocator  = Memory\+::\+Default\+Allocator, class Other\+Storage  = Raw\+::\+Raw\+Vec$<$\+T, Other\+Allocator$>$$>$ }\\\mbox{\hyperlink{classChiaVec_1_1Vec}{Vec}}$<$ T, Other\+Allocator, Other\+Storage $>$ \mbox{\hyperlink{classChiaVec_1_1Vec_afbf790e0b7b01b49845d9557b7d2d38f}{clone}} () const
+\begin{DoxyCompactList}\small\item\em Creates a new vector that is a deep copy of the current vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classChiaVec_1_1Vec_a3a77d925a0b6876c6781280abab27068}\label{classChiaVec_1_1Vec_a3a77d925a0b6876c6781280abab27068}} 
+{\footnotesize template$<$class U , class Other\+Allocator , class Other\+Storage $>$ }\\class {\bfseries Cuda\+Vec}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T, class Allocator = Memory\+::\+Default\+Allocator, class Storage = Raw\+::\+Raw\+Vec$<$\+T, Allocator$>$$>$\newline
+class Chia\+Vec\+::\+Vec$<$ T, Allocator, Storage $>$}
+
+A generic vector data structure that supports different memory allocators and storage types. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of elements stored in the vector. \\
+\hline
+{\em Allocator} & The memory allocator used for the vector\textquotesingle{}s storage. Defaults to {\ttfamily \mbox{\hyperlink{structChiaVec_1_1Memory_1_1DefaultAllocator}{Memory\+::\+Default\+Allocator}}}. \\
+\hline
+{\em Storage} & The storage type used for the vector\textquotesingle{}s data. Defaults to {\ttfamily \mbox{\hyperlink{classChiaVec_1_1Raw_1_1RawVec}{Raw\+::\+Raw\+Vec}}$<$T, Allocator$>$}. \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classChiaVec_1_1Vec_ae6a53823914b760ef1ccc49127df6ef5}\label{classChiaVec_1_1Vec_ae6a53823914b760ef1ccc49127df6ef5}} 
+\index{ChiaVec::Vec$<$ T, Allocator, Storage $>$@{ChiaVec::Vec$<$ T, Allocator, Storage $>$}!Vec@{Vec}}
+\index{Vec@{Vec}!ChiaVec::Vec$<$ T, Allocator, Storage $>$@{ChiaVec::Vec$<$ T, Allocator, Storage $>$}}
+\doxysubsubsection{\texorpdfstring{Vec()}{Vec()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily template$<$class T , class Allocator  = Memory\+::\+Default\+Allocator, class Storage  = Raw\+::\+Raw\+Vec$<$\+T, Allocator$>$$>$ \\
+\mbox{\hyperlink{classChiaVec_1_1Vec}{Chia\+Vec\+::\+Vec}}$<$ T, Allocator, Storage $>$\+::\mbox{\hyperlink{classChiaVec_1_1Vec}{Vec}} (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{capacity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs a vector with a specified initial capacity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em capacity} & The initial capacity of the vector. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classChiaVec_1_1Vec_a5fffe134f9a95c7ca313f40357ebd208}\label{classChiaVec_1_1Vec_a5fffe134f9a95c7ca313f40357ebd208}} 
+\index{ChiaVec::Vec$<$ T, Allocator, Storage $>$@{ChiaVec::Vec$<$ T, Allocator, Storage $>$}!Vec@{Vec}}
+\index{Vec@{Vec}!ChiaVec::Vec$<$ T, Allocator, Storage $>$@{ChiaVec::Vec$<$ T, Allocator, Storage $>$}}
+\doxysubsubsection{\texorpdfstring{Vec()}{Vec()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily template$<$class T , class Allocator  = Memory\+::\+Default\+Allocator, class Storage  = Raw\+::\+Raw\+Vec$<$\+T, Allocator$>$$>$ \\
+\mbox{\hyperlink{classChiaVec_1_1Vec}{Chia\+Vec\+::\+Vec}}$<$ T, Allocator, Storage $>$\+::\mbox{\hyperlink{classChiaVec_1_1Vec}{Vec}} (\begin{DoxyParamCaption}\item[{const T $\ast$}]{data,  }\item[{std\+::size\+\_\+t}]{length,  }\item[{bool}]{on\+Host }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs a vector from a raw data pointer and length. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The raw data pointer. \\
+\hline
+{\em length} & The length of the data. \\
+\hline
+{\em on\+Host} & Indicates whether the data is located on the host (true) or device (false). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classChiaVec_1_1Vec_aec761b72f9188cd0ef5398d814298b09}\label{classChiaVec_1_1Vec_aec761b72f9188cd0ef5398d814298b09}} 
+\index{ChiaVec::Vec$<$ T, Allocator, Storage $>$@{ChiaVec::Vec$<$ T, Allocator, Storage $>$}!Vec@{Vec}}
+\index{Vec@{Vec}!ChiaVec::Vec$<$ T, Allocator, Storage $>$@{ChiaVec::Vec$<$ T, Allocator, Storage $>$}}
+\doxysubsubsection{\texorpdfstring{Vec()}{Vec()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily template$<$class T , class Allocator  = Memory\+::\+Default\+Allocator, class Storage  = Raw\+::\+Raw\+Vec$<$\+T, Allocator$>$$>$ \\
+\mbox{\hyperlink{classChiaVec_1_1Vec}{Chia\+Vec\+::\+Vec}}$<$ T, Allocator, Storage $>$\+::\mbox{\hyperlink{classChiaVec_1_1Vec}{Vec}} (\begin{DoxyParamCaption}\item[{std\+::initializer\+\_\+list$<$ T $>$}]{l }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs a vector from an initializer list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & The initializer list. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classChiaVec_1_1Vec_a389fdb43edde47bc6fd79156b057e72c}\label{classChiaVec_1_1Vec_a389fdb43edde47bc6fd79156b057e72c}} 
+\index{ChiaVec::Vec$<$ T, Allocator, Storage $>$@{ChiaVec::Vec$<$ T, Allocator, Storage $>$}!Vec@{Vec}}
+\index{Vec@{Vec}!ChiaVec::Vec$<$ T, Allocator, Storage $>$@{ChiaVec::Vec$<$ T, Allocator, Storage $>$}}
+\doxysubsubsection{\texorpdfstring{Vec()}{Vec()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily template$<$class T , class Allocator  = Memory\+::\+Default\+Allocator, class Storage  = Raw\+::\+Raw\+Vec$<$\+T, Allocator$>$$>$ \\
+template$<$class Other\+Allocator , class Other\+Storage $>$ \\
+\mbox{\hyperlink{classChiaVec_1_1Vec}{Chia\+Vec\+::\+Vec}}$<$ T, Allocator, Storage $>$\+::\mbox{\hyperlink{classChiaVec_1_1Vec}{Vec}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classChiaVec_1_1Vec}{Vec}}$<$ T, Other\+Allocator, Other\+Storage $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs a vector from another vector. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Other\+Allocator} & The memory allocator used for the other vector\textquotesingle{}s storage. \\
+\hline
+{\em Other\+Storage} & The storage type used for the other vector\textquotesingle{}s data. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other vector. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classChiaVec_1_1Vec_acfdf50e3fe7b450ea39b5576f03680e4}\label{classChiaVec_1_1Vec_acfdf50e3fe7b450ea39b5576f03680e4}} 
+\index{ChiaVec::Vec$<$ T, Allocator, Storage $>$@{ChiaVec::Vec$<$ T, Allocator, Storage $>$}!Vec@{Vec}}
+\index{Vec@{Vec}!ChiaVec::Vec$<$ T, Allocator, Storage $>$@{ChiaVec::Vec$<$ T, Allocator, Storage $>$}}
+\doxysubsubsection{\texorpdfstring{Vec()}{Vec()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily template$<$class T , class Allocator  = Memory\+::\+Default\+Allocator, class Storage  = Raw\+::\+Raw\+Vec$<$\+T, Allocator$>$$>$ \\
+\mbox{\hyperlink{classChiaVec_1_1Vec}{Chia\+Vec\+::\+Vec}}$<$ T, Allocator, Storage $>$\+::\mbox{\hyperlink{classChiaVec_1_1Vec}{Vec}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classChiaVec_1_1Vec}{Vec}}$<$ T, Allocator, Storage $>$ \&\&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Move constructor. 
+
+Constructs a new vector by moving the contents of the {\ttfamily other} vector. After the construction, the {\ttfamily other} vector will be in a valid but unspecified state, and its length will be set to 0.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The vector to move from. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classChiaVec_1_1Vec_afbf790e0b7b01b49845d9557b7d2d38f}\label{classChiaVec_1_1Vec_afbf790e0b7b01b49845d9557b7d2d38f}} 
+\index{ChiaVec::Vec$<$ T, Allocator, Storage $>$@{ChiaVec::Vec$<$ T, Allocator, Storage $>$}!clone@{clone}}
+\index{clone@{clone}!ChiaVec::Vec$<$ T, Allocator, Storage $>$@{ChiaVec::Vec$<$ T, Allocator, Storage $>$}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily template$<$class T , class Allocator  = Memory\+::\+Default\+Allocator, class Storage  = Raw\+::\+Raw\+Vec$<$\+T, Allocator$>$$>$ \\
+template$<$class Other\+Allocator  = Memory\+::\+Default\+Allocator, class Other\+Storage  = Raw\+::\+Raw\+Vec$<$\+T, Other\+Allocator$>$$>$ \\
+\mbox{\hyperlink{classChiaVec_1_1Vec}{Vec}}$<$T, Other\+Allocator, Other\+Storage$>$ \mbox{\hyperlink{classChiaVec_1_1Vec}{Chia\+Vec\+::\+Vec}}$<$ T, Allocator, Storage $>$\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creates a new vector that is a deep copy of the current vector. 
+
+This function creates a new vector that is a deep copy of the current vector. The new vector can have a different allocator and storage type than the current vector.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Other\+Allocator} & The memory allocator to use for the new vector. \\
+\hline
+{\em Other\+Storage} & The storage type to use for the new vector. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+A new vector that is a deep copy of the current vector. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classChiaVec_1_1Vec_a22b7a8f5fe1ebede52816ab83680a7a1}\label{classChiaVec_1_1Vec_a22b7a8f5fe1ebede52816ab83680a7a1}} 
+\index{ChiaVec::Vec$<$ T, Allocator, Storage $>$@{ChiaVec::Vec$<$ T, Allocator, Storage $>$}!copyFrom@{copyFrom}}
+\index{copyFrom@{copyFrom}!ChiaVec::Vec$<$ T, Allocator, Storage $>$@{ChiaVec::Vec$<$ T, Allocator, Storage $>$}}
+\doxysubsubsection{\texorpdfstring{copyFrom()}{copyFrom()}}
+{\footnotesize\ttfamily template$<$class T , class Allocator  = Memory\+::\+Default\+Allocator, class Storage  = Raw\+::\+Raw\+Vec$<$\+T, Allocator$>$$>$ \\
+template$<$class Other\+Allocator , class Other\+Storage $>$ \\
+void \mbox{\hyperlink{classChiaVec_1_1Vec}{Chia\+Vec\+::\+Vec}}$<$ T, Allocator, Storage $>$\+::copy\+From (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classChiaVec_1_1Vec}{Vec}}$<$ T, Other\+Allocator, Other\+Storage $>$ \&}]{vec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Copies the contents of another vector to the current vector. 
+
+This function copies the contents of the {\ttfamily vec} vector to the current vector. The function performs a deep copy, where the underlying storage is also copied. After the copy operation, the current vector will have the same length and contents as the {\ttfamily vec} vector.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Other\+Allocator} & The memory allocator used for the {\ttfamily vec} vector. \\
+\hline
+{\em Other\+Storage} & The storage type used for the {\ttfamily vec} vector. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & The vector to copy the contents from. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classChiaVec_1_1Vec_a16d7af9f631b265e450024bef7fe3c54}\label{classChiaVec_1_1Vec_a16d7af9f631b265e450024bef7fe3c54}} 
+\index{ChiaVec::Vec$<$ T, Allocator, Storage $>$@{ChiaVec::Vec$<$ T, Allocator, Storage $>$}!copyTo@{copyTo}}
+\index{copyTo@{copyTo}!ChiaVec::Vec$<$ T, Allocator, Storage $>$@{ChiaVec::Vec$<$ T, Allocator, Storage $>$}}
+\doxysubsubsection{\texorpdfstring{copyTo()}{copyTo()}}
+{\footnotesize\ttfamily template$<$class T , class Allocator  = Memory\+::\+Default\+Allocator, class Storage  = Raw\+::\+Raw\+Vec$<$\+T, Allocator$>$$>$ \\
+template$<$class Other\+Allocator , class Other\+Storage $>$ \\
+void \mbox{\hyperlink{classChiaVec_1_1Vec}{Chia\+Vec\+::\+Vec}}$<$ T, Allocator, Storage $>$\+::copy\+To (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classChiaVec_1_1Vec}{Vec}}$<$ T, Other\+Allocator, Other\+Storage $>$ \&}]{vec }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Copies the contents of the current vector to another vector. 
+
+This function copies the contents of the current vector to the {\ttfamily vec} vector, which may have a different allocator and storage type. The function performs a deep copy, where the underlying storage is also copied.
+
+After the copy operation, the {\ttfamily vec} vector will have the same length as the current vector.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Other\+Allocator} & The memory allocator used for the {\ttfamily vec} vector. \\
+\hline
+{\em Other\+Storage} & The storage type used for the {\ttfamily vec} vector. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & The vector to copy the contents to. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classChiaVec_1_1Vec_a9d41d6796ecafcc8a715206abfdb210c}\label{classChiaVec_1_1Vec_a9d41d6796ecafcc8a715206abfdb210c}} 
+\index{ChiaVec::Vec$<$ T, Allocator, Storage $>$@{ChiaVec::Vec$<$ T, Allocator, Storage $>$}!get@{get}}
+\index{get@{get}!ChiaVec::Vec$<$ T, Allocator, Storage $>$@{ChiaVec::Vec$<$ T, Allocator, Storage $>$}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily template$<$class T , class Allocator  = Memory\+::\+Default\+Allocator, class Storage  = Raw\+::\+Raw\+Vec$<$\+T, Allocator$>$$>$ \\
+std\+::optional$<$T $\ast$$>$ \mbox{\hyperlink{classChiaVec_1_1Vec}{Chia\+Vec\+::\+Vec}}$<$ T, Allocator, Storage $>$\+::get (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves a pointer to the element at the specified index. 
+
+If the index is within the bounds of the vector, this function returns a {\ttfamily std\+::optional} containing a pointer to the element at the specified index. Otherwise, it returns a {\ttfamily std\+::nullopt}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index of the element to retrieve. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A {\ttfamily std\+::optional} containing a pointer to the element at the specified index, or {\ttfamily std\+::nullopt} if the index is out of bounds. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classChiaVec_1_1Vec_a9589c1646af0fc29e0e7f9286c498dba}\label{classChiaVec_1_1Vec_a9589c1646af0fc29e0e7f9286c498dba}} 
+\index{ChiaVec::Vec$<$ T, Allocator, Storage $>$@{ChiaVec::Vec$<$ T, Allocator, Storage $>$}!getConst@{getConst}}
+\index{getConst@{getConst}!ChiaVec::Vec$<$ T, Allocator, Storage $>$@{ChiaVec::Vec$<$ T, Allocator, Storage $>$}}
+\doxysubsubsection{\texorpdfstring{getConst()}{getConst()}}
+{\footnotesize\ttfamily template$<$class T , class Allocator  = Memory\+::\+Default\+Allocator, class Storage  = Raw\+::\+Raw\+Vec$<$\+T, Allocator$>$$>$ \\
+std\+::optional$<$const T $\ast$$>$ \mbox{\hyperlink{classChiaVec_1_1Vec}{Chia\+Vec\+::\+Vec}}$<$ T, Allocator, Storage $>$\+::get\+Const (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves a const pointer to the element at the specified index. 
+
+If the index is within the bounds of the vector, this function returns a {\ttfamily std\+::optional} containing a const pointer to the element at the specified index. Otherwise, it returns a {\ttfamily std\+::nullopt}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index of the element to retrieve. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A {\ttfamily std\+::optional} containing a const pointer to the element at the specified index, or {\ttfamily std\+::nullopt} if the index is out of bounds. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classChiaVec_1_1Vec_ad3439cea781ad9d44c49c81257098f2b}\label{classChiaVec_1_1Vec_ad3439cea781ad9d44c49c81257098f2b}} 
+\index{ChiaVec::Vec$<$ T, Allocator, Storage $>$@{ChiaVec::Vec$<$ T, Allocator, Storage $>$}!len@{len}}
+\index{len@{len}!ChiaVec::Vec$<$ T, Allocator, Storage $>$@{ChiaVec::Vec$<$ T, Allocator, Storage $>$}}
+\doxysubsubsection{\texorpdfstring{len()}{len()}}
+{\footnotesize\ttfamily template$<$class T , class Allocator  = Memory\+::\+Default\+Allocator, class Storage  = Raw\+::\+Raw\+Vec$<$\+T, Allocator$>$$>$ \\
+std\+::size\+\_\+t \mbox{\hyperlink{classChiaVec_1_1Vec}{Chia\+Vec\+::\+Vec}}$<$ T, Allocator, Storage $>$\+::len (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the length (number of elements) of the vector. 
+
+\begin{DoxyReturn}{Returns}
+The length of the vector. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classChiaVec_1_1Vec_a15912ae318821f04c6e576fddff4f180}\label{classChiaVec_1_1Vec_a15912ae318821f04c6e576fddff4f180}} 
+\index{ChiaVec::Vec$<$ T, Allocator, Storage $>$@{ChiaVec::Vec$<$ T, Allocator, Storage $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!ChiaVec::Vec$<$ T, Allocator, Storage $>$@{ChiaVec::Vec$<$ T, Allocator, Storage $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$class T , class Allocator  = Memory\+::\+Default\+Allocator, class Storage  = Raw\+::\+Raw\+Vec$<$\+T, Allocator$>$$>$ \\
+\mbox{\hyperlink{classChiaVec_1_1Vec}{Vec}}$<$T, Allocator, Storage$>$\& \mbox{\hyperlink{classChiaVec_1_1Vec}{Chia\+Vec\+::\+Vec}}$<$ T, Allocator, Storage $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classChiaVec_1_1Vec}{Vec}}$<$ T, Allocator, Storage $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Copy assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The vector to copy from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the current vector after the assignment. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classChiaVec_1_1Vec_afa121e4e9b636f2192632a25989e83a2}\label{classChiaVec_1_1Vec_afa121e4e9b636f2192632a25989e83a2}} 
+\index{ChiaVec::Vec$<$ T, Allocator, Storage $>$@{ChiaVec::Vec$<$ T, Allocator, Storage $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!ChiaVec::Vec$<$ T, Allocator, Storage $>$@{ChiaVec::Vec$<$ T, Allocator, Storage $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$class T , class Allocator  = Memory\+::\+Default\+Allocator, class Storage  = Raw\+::\+Raw\+Vec$<$\+T, Allocator$>$$>$ \\
+template$<$class Other\+Allocator , class Other\+Storage $>$ \\
+\mbox{\hyperlink{classChiaVec_1_1Vec}{Vec}}$<$T, Allocator, Storage$>$\& \mbox{\hyperlink{classChiaVec_1_1Vec}{Chia\+Vec\+::\+Vec}}$<$ T, Allocator, Storage $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classChiaVec_1_1Vec}{Vec}}$<$ T, Other\+Allocator, Other\+Storage $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Copy assignment operator for vectors with different allocators and storage types. 
+
+Assigns the contents of the {\ttfamily other} vector to the current vector. This operation performs a deep copy, where the underlying storage is also copied.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Other\+Allocator} & The memory allocator used for the {\ttfamily other} vector. \\
+\hline
+{\em Other\+Storage} & The storage type used for the {\ttfamily other} vector. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The vector to copy from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the current vector after the assignment. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classChiaVec_1_1Vec_a6beb91851098b2dc48bc7cd49178a5df}\label{classChiaVec_1_1Vec_a6beb91851098b2dc48bc7cd49178a5df}} 
+\index{ChiaVec::Vec$<$ T, Allocator, Storage $>$@{ChiaVec::Vec$<$ T, Allocator, Storage $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!ChiaVec::Vec$<$ T, Allocator, Storage $>$@{ChiaVec::Vec$<$ T, Allocator, Storage $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$class T , class Allocator  = Memory\+::\+Default\+Allocator, class Storage  = Raw\+::\+Raw\+Vec$<$\+T, Allocator$>$$>$ \\
+\mbox{\hyperlink{classChiaVec_1_1Vec}{Vec}}$<$T, Allocator, Storage$>$\& \mbox{\hyperlink{classChiaVec_1_1Vec}{Chia\+Vec\+::\+Vec}}$<$ T, Allocator, Storage $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classChiaVec_1_1Vec}{Vec}}$<$ T, Allocator, Storage $>$ \&\&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Move assignment operator. 
+
+Moves the contents of the {\ttfamily other} vector to the current vector, effectively transferring ownership of the underlying storage. After the assignment, the {\ttfamily other} vector will be in a valid but unspecified state.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The vector to move from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the current vector after the assignment. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classChiaVec_1_1Vec_ae2046a3b12e69bec4cc92ce73d2ec026}\label{classChiaVec_1_1Vec_ae2046a3b12e69bec4cc92ce73d2ec026}} 
+\index{ChiaVec::Vec$<$ T, Allocator, Storage $>$@{ChiaVec::Vec$<$ T, Allocator, Storage $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!ChiaVec::Vec$<$ T, Allocator, Storage $>$@{ChiaVec::Vec$<$ T, Allocator, Storage $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T , class Allocator  = Memory\+::\+Default\+Allocator, class Storage  = Raw\+::\+Raw\+Vec$<$\+T, Allocator$>$$>$ \\
+virtual T\& \mbox{\hyperlink{classChiaVec_1_1Vec}{Chia\+Vec\+::\+Vec}}$<$ T, Allocator, Storage $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Returns a reference to the element at the specified index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index of the element. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the element. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classChiaVec_1_1Vec_a947bd20b410b9fca5f44b67a1cf0f62b}\label{classChiaVec_1_1Vec_a947bd20b410b9fca5f44b67a1cf0f62b}} 
+\index{ChiaVec::Vec$<$ T, Allocator, Storage $>$@{ChiaVec::Vec$<$ T, Allocator, Storage $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!ChiaVec::Vec$<$ T, Allocator, Storage $>$@{ChiaVec::Vec$<$ T, Allocator, Storage $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T , class Allocator  = Memory\+::\+Default\+Allocator, class Storage  = Raw\+::\+Raw\+Vec$<$\+T, Allocator$>$$>$ \\
+virtual const T\& \mbox{\hyperlink{classChiaVec_1_1Vec}{Chia\+Vec\+::\+Vec}}$<$ T, Allocator, Storage $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Returns a reference to the element at the specified index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index of the element. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the element. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classChiaVec_1_1Vec_ae9efaac15c575c122db2c16979e5cd00}\label{classChiaVec_1_1Vec_ae9efaac15c575c122db2c16979e5cd00}} 
+\index{ChiaVec::Vec$<$ T, Allocator, Storage $>$@{ChiaVec::Vec$<$ T, Allocator, Storage $>$}!pop@{pop}}
+\index{pop@{pop}!ChiaVec::Vec$<$ T, Allocator, Storage $>$@{ChiaVec::Vec$<$ T, Allocator, Storage $>$}}
+\doxysubsubsection{\texorpdfstring{pop()}{pop()}}
+{\footnotesize\ttfamily template$<$class T , class Allocator  = Memory\+::\+Default\+Allocator, class Storage  = Raw\+::\+Raw\+Vec$<$\+T, Allocator$>$$>$ \\
+virtual std\+::optional$<$T$>$ \mbox{\hyperlink{classChiaVec_1_1Vec}{Chia\+Vec\+::\+Vec}}$<$ T, Allocator, Storage $>$\+::pop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Removes and returns the last element from the vector. 
+
+This function removes and returns the last element from the vector. If the vector is empty, it returns {\ttfamily std\+::nullopt}.
+
+If the allocator is configured to allocate on the host, the function directly returns the last element. Otherwise, it copies the last element to a temporary buffer and returns it.
+
+\begin{DoxyReturn}{Returns}
+A {\ttfamily std\+::optional} containing the last element of the vector, or {\ttfamily std\+::nullopt} if the vector is empty. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classChiaVec_1_1Vec_ae5f8c8df2ce53ebd8cba16c9fdae151c}\label{classChiaVec_1_1Vec_ae5f8c8df2ce53ebd8cba16c9fdae151c}} 
+\index{ChiaVec::Vec$<$ T, Allocator, Storage $>$@{ChiaVec::Vec$<$ T, Allocator, Storage $>$}!push@{push}}
+\index{push@{push}!ChiaVec::Vec$<$ T, Allocator, Storage $>$@{ChiaVec::Vec$<$ T, Allocator, Storage $>$}}
+\doxysubsubsection{\texorpdfstring{push()}{push()}}
+{\footnotesize\ttfamily template$<$class T , class Allocator  = Memory\+::\+Default\+Allocator, class Storage  = Raw\+::\+Raw\+Vec$<$\+T, Allocator$>$$>$ \\
+template$<$class U $>$ \\
+void \mbox{\hyperlink{classChiaVec_1_1Vec}{Chia\+Vec\+::\+Vec}}$<$ T, Allocator, Storage $>$\+::push (\begin{DoxyParamCaption}\item[{U \&\&}]{element,  }\item[{bool}]{on\+Host }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds a new element to the end of the vector. 
+
+This function appends the given {\ttfamily element} to the end of the vector. If the vector\textquotesingle{}s capacity needs to be increased to accommodate the new element, the function will automatically resize the underlying storage.
+
+The {\ttfamily on\+Host} parameter specifies whether the {\ttfamily element} is located on the host (CPU) or the device (GPU). If {\ttfamily on\+Host} is true and the allocator is set to allocate on the host, the element is directly assigned to the vector\textquotesingle{}s storage. Otherwise, the element is copied using the allocator\textquotesingle{}s {\ttfamily copy()} function.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em U} & The type of the element to be added. This type must be convertible to {\ttfamily T}. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em element} & The element to be added to the vector. \\
+\hline
+{\em on\+Host} & Indicates whether the {\ttfamily element} is located on the host (CPU) or the device (GPU). \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/include/vecs.\+hpp\end{DoxyCompactItemize}

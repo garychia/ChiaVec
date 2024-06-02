@@ -1,0 +1,138 @@
+\hypertarget{structChiaVec_1_1Memory_1_1DefaultAllocator}{}\doxysection{Chia\+Vec\+::Memory\+::Default\+Allocator Struct Reference}
+\label{structChiaVec_1_1Memory_1_1DefaultAllocator}\index{ChiaVec::Memory::DefaultAllocator@{ChiaVec::Memory::DefaultAllocator}}
+
+
+Default memory allocator that allocates memory on the host (CPU).  
+
+
+
+
+{\ttfamily \#include $<$allocators.\+hpp$>$}
+
+
+
+Inheritance diagram for Chia\+Vec\+::Memory\+::Default\+Allocator\+:
+% FIG 0
+
+
+Collaboration diagram for Chia\+Vec\+::Memory\+::Default\+Allocator\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void $\ast$ \mbox{\hyperlink{structChiaVec_1_1Memory_1_1DefaultAllocator_a5468ddaff18e896d926f5d00aae0b2f5}{operator()}} (std\+::size\+\_\+t size) override
+\begin{DoxyCompactList}\small\item\em Allocates a block of memory of the specified size on the host. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{structChiaVec_1_1Memory_1_1DefaultAllocator_ab8d4c4a6dd0648a9e21480e991f27a3b}{release}} (void $\ast$ptr) override
+\begin{DoxyCompactList}\small\item\em Releases the memory block pointed to by the given pointer. \end{DoxyCompactList}\item 
+virtual void $\ast$ \mbox{\hyperlink{structChiaVec_1_1Memory_1_1DefaultAllocator_a14f886e53de9ca7e3abf93ffdc4407a6}{resize}} (void $\ast$ptr, std\+::size\+\_\+t old\+Size, std\+::size\+\_\+t new\+Size) override
+\begin{DoxyCompactList}\small\item\em Resizes the memory block pointed to by the given pointer. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{structChiaVec_1_1Memory_1_1DefaultAllocator_a0513793807f7363011e7c502fcb0b9ae}{copy}} (void $\ast$dst, const void $\ast$src, std\+::size\+\_\+t size, bool dst\+On\+Host, bool src\+On\+Host) override
+\begin{DoxyCompactList}\small\item\em Copies data between host and device memory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Default memory allocator that allocates memory on the host (CPU). 
+
+This class implements the \mbox{\hyperlink{structChiaVec_1_1Memory_1_1BaseAllocator}{Base\+Allocator}} interface to provide a default memory allocator that allocates memory on the host (CPU). 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structChiaVec_1_1Memory_1_1DefaultAllocator_a0513793807f7363011e7c502fcb0b9ae}\label{structChiaVec_1_1Memory_1_1DefaultAllocator_a0513793807f7363011e7c502fcb0b9ae}} 
+\index{ChiaVec::Memory::DefaultAllocator@{ChiaVec::Memory::DefaultAllocator}!copy@{copy}}
+\index{copy@{copy}!ChiaVec::Memory::DefaultAllocator@{ChiaVec::Memory::DefaultAllocator}}
+\doxysubsubsection{\texorpdfstring{copy()}{copy()}}
+{\footnotesize\ttfamily virtual void Chia\+Vec\+::\+Memory\+::\+Default\+Allocator\+::copy (\begin{DoxyParamCaption}\item[{void $\ast$}]{dst,  }\item[{const void $\ast$}]{src,  }\item[{std\+::size\+\_\+t}]{size,  }\item[{bool}]{dst\+On\+Host,  }\item[{bool}]{src\+On\+Host }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Copies data between host and device memory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The destination pointer for the copy operation. \\
+\hline
+{\em src} & The source pointer for the copy operation. \\
+\hline
+{\em size} & The size of the data to be copied, in bytes. \\
+\hline
+{\em dst\+On\+Host} & Indicates whether the destination memory is on the host. \\
+\hline
+{\em src\+On\+Host} & Indicates whether the source memory is on the host. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{structChiaVec_1_1Memory_1_1BaseAllocator_ae1156ac806e7840373545ccd75a3e1fd}{Chia\+Vec\+::\+Memory\+::\+Base\+Allocator$<$ true $>$}}.
+
+\mbox{\Hypertarget{structChiaVec_1_1Memory_1_1DefaultAllocator_a5468ddaff18e896d926f5d00aae0b2f5}\label{structChiaVec_1_1Memory_1_1DefaultAllocator_a5468ddaff18e896d926f5d00aae0b2f5}} 
+\index{ChiaVec::Memory::DefaultAllocator@{ChiaVec::Memory::DefaultAllocator}!operator()@{operator()}}
+\index{operator()@{operator()}!ChiaVec::Memory::DefaultAllocator@{ChiaVec::Memory::DefaultAllocator}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily virtual void$\ast$ Chia\+Vec\+::\+Memory\+::\+Default\+Allocator\+::operator() (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Allocates a block of memory of the specified size on the host. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & The size of the memory block to allocate, in bytes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the allocated memory block. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{structChiaVec_1_1Memory_1_1BaseAllocator_a9f7ec886715a18711a645557dddb37e6}{Chia\+Vec\+::\+Memory\+::\+Base\+Allocator$<$ true $>$}}.
+
+\mbox{\Hypertarget{structChiaVec_1_1Memory_1_1DefaultAllocator_ab8d4c4a6dd0648a9e21480e991f27a3b}\label{structChiaVec_1_1Memory_1_1DefaultAllocator_ab8d4c4a6dd0648a9e21480e991f27a3b}} 
+\index{ChiaVec::Memory::DefaultAllocator@{ChiaVec::Memory::DefaultAllocator}!release@{release}}
+\index{release@{release}!ChiaVec::Memory::DefaultAllocator@{ChiaVec::Memory::DefaultAllocator}}
+\doxysubsubsection{\texorpdfstring{release()}{release()}}
+{\footnotesize\ttfamily virtual void Chia\+Vec\+::\+Memory\+::\+Default\+Allocator\+::release (\begin{DoxyParamCaption}\item[{void $\ast$}]{ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Releases the memory block pointed to by the given pointer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptr} & A pointer to the memory block to be released. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{structChiaVec_1_1Memory_1_1BaseAllocator_a1dcedb92b0b50a52ef54e10b1e478b35}{Chia\+Vec\+::\+Memory\+::\+Base\+Allocator$<$ true $>$}}.
+
+\mbox{\Hypertarget{structChiaVec_1_1Memory_1_1DefaultAllocator_a14f886e53de9ca7e3abf93ffdc4407a6}\label{structChiaVec_1_1Memory_1_1DefaultAllocator_a14f886e53de9ca7e3abf93ffdc4407a6}} 
+\index{ChiaVec::Memory::DefaultAllocator@{ChiaVec::Memory::DefaultAllocator}!resize@{resize}}
+\index{resize@{resize}!ChiaVec::Memory::DefaultAllocator@{ChiaVec::Memory::DefaultAllocator}}
+\doxysubsubsection{\texorpdfstring{resize()}{resize()}}
+{\footnotesize\ttfamily virtual void$\ast$ Chia\+Vec\+::\+Memory\+::\+Default\+Allocator\+::resize (\begin{DoxyParamCaption}\item[{void $\ast$}]{ptr,  }\item[{std\+::size\+\_\+t}]{old\+Size,  }\item[{std\+::size\+\_\+t}]{new\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Resizes the memory block pointed to by the given pointer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptr} & The pointer to the memory block to be resized. \\
+\hline
+{\em old\+Size} & The current size of the memory block, in bytes. \\
+\hline
+{\em new\+Size} & The new size of the memory block, in bytes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the resized memory block. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{structChiaVec_1_1Memory_1_1BaseAllocator_a2c70ecfbe20bf0a58a0e234ec29c2e91}{Chia\+Vec\+::\+Memory\+::\+Base\+Allocator$<$ true $>$}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/include/allocators.\+hpp\end{DoxyCompactItemize}

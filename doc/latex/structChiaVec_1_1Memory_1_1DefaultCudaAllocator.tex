@@ -1,0 +1,138 @@
+\hypertarget{structChiaVec_1_1Memory_1_1DefaultCudaAllocator}{}\doxysection{Chia\+Vec\+::Memory\+::Default\+Cuda\+Allocator Struct Reference}
+\label{structChiaVec_1_1Memory_1_1DefaultCudaAllocator}\index{ChiaVec::Memory::DefaultCudaAllocator@{ChiaVec::Memory::DefaultCudaAllocator}}
+
+
+Default memory allocator that allocates memory on the device (GPU).  
+
+
+
+
+{\ttfamily \#include $<$allocators.\+hpp$>$}
+
+
+
+Inheritance diagram for Chia\+Vec\+::Memory\+::Default\+Cuda\+Allocator\+:
+% FIG 0
+
+
+Collaboration diagram for Chia\+Vec\+::Memory\+::Default\+Cuda\+Allocator\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void $\ast$ \mbox{\hyperlink{structChiaVec_1_1Memory_1_1DefaultCudaAllocator_a4085acf87472e3fc2e07f5973421f53e}{operator()}} (std\+::size\+\_\+t size) override
+\begin{DoxyCompactList}\small\item\em Allocates a block of memory of the specified size on the device. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{structChiaVec_1_1Memory_1_1DefaultCudaAllocator_a1a013566d81e7f10bbcfca44a274f7bb}{release}} (void $\ast$ptr) override
+\begin{DoxyCompactList}\small\item\em Releases the memory block pointed to by the given pointer. \end{DoxyCompactList}\item 
+virtual void $\ast$ \mbox{\hyperlink{structChiaVec_1_1Memory_1_1DefaultCudaAllocator_ab78170959861de2e53b47823fd8871bd}{resize}} (void $\ast$ptr, std\+::size\+\_\+t old\+Size, std\+::size\+\_\+t new\+Size) override
+\begin{DoxyCompactList}\small\item\em Resizes the memory block pointed to by the given pointer. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{structChiaVec_1_1Memory_1_1DefaultCudaAllocator_a3e6200d3cd5a32c96f9ed200b8dc8973}{copy}} (void $\ast$dst, const void $\ast$src, std\+::size\+\_\+t size, bool dst\+On\+Host, bool src\+On\+Host) override
+\begin{DoxyCompactList}\small\item\em Copies data between host and device memory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Default memory allocator that allocates memory on the device (GPU). 
+
+This class implements the \mbox{\hyperlink{structChiaVec_1_1Memory_1_1BaseAllocator}{Base\+Allocator}} interface to provide a default memory allocator that allocates memory on the device (GPU). 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structChiaVec_1_1Memory_1_1DefaultCudaAllocator_a3e6200d3cd5a32c96f9ed200b8dc8973}\label{structChiaVec_1_1Memory_1_1DefaultCudaAllocator_a3e6200d3cd5a32c96f9ed200b8dc8973}} 
+\index{ChiaVec::Memory::DefaultCudaAllocator@{ChiaVec::Memory::DefaultCudaAllocator}!copy@{copy}}
+\index{copy@{copy}!ChiaVec::Memory::DefaultCudaAllocator@{ChiaVec::Memory::DefaultCudaAllocator}}
+\doxysubsubsection{\texorpdfstring{copy()}{copy()}}
+{\footnotesize\ttfamily virtual void Chia\+Vec\+::\+Memory\+::\+Default\+Cuda\+Allocator\+::copy (\begin{DoxyParamCaption}\item[{void $\ast$}]{dst,  }\item[{const void $\ast$}]{src,  }\item[{std\+::size\+\_\+t}]{size,  }\item[{bool}]{dst\+On\+Host,  }\item[{bool}]{src\+On\+Host }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Copies data between host and device memory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & The destination pointer for the copy operation. \\
+\hline
+{\em src} & The source pointer for the copy operation. \\
+\hline
+{\em size} & The size of the data to be copied, in bytes. \\
+\hline
+{\em dst\+On\+Host} & Indicates whether the destination memory is on the host. \\
+\hline
+{\em src\+On\+Host} & Indicates whether the source memory is on the host. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{structChiaVec_1_1Memory_1_1BaseAllocator_ae1156ac806e7840373545ccd75a3e1fd}{Chia\+Vec\+::\+Memory\+::\+Base\+Allocator$<$ false $>$}}.
+
+\mbox{\Hypertarget{structChiaVec_1_1Memory_1_1DefaultCudaAllocator_a4085acf87472e3fc2e07f5973421f53e}\label{structChiaVec_1_1Memory_1_1DefaultCudaAllocator_a4085acf87472e3fc2e07f5973421f53e}} 
+\index{ChiaVec::Memory::DefaultCudaAllocator@{ChiaVec::Memory::DefaultCudaAllocator}!operator()@{operator()}}
+\index{operator()@{operator()}!ChiaVec::Memory::DefaultCudaAllocator@{ChiaVec::Memory::DefaultCudaAllocator}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily virtual void$\ast$ Chia\+Vec\+::\+Memory\+::\+Default\+Cuda\+Allocator\+::operator() (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Allocates a block of memory of the specified size on the device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & The size of the memory block to allocate, in bytes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the allocated memory block. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{structChiaVec_1_1Memory_1_1BaseAllocator_a9f7ec886715a18711a645557dddb37e6}{Chia\+Vec\+::\+Memory\+::\+Base\+Allocator$<$ false $>$}}.
+
+\mbox{\Hypertarget{structChiaVec_1_1Memory_1_1DefaultCudaAllocator_a1a013566d81e7f10bbcfca44a274f7bb}\label{structChiaVec_1_1Memory_1_1DefaultCudaAllocator_a1a013566d81e7f10bbcfca44a274f7bb}} 
+\index{ChiaVec::Memory::DefaultCudaAllocator@{ChiaVec::Memory::DefaultCudaAllocator}!release@{release}}
+\index{release@{release}!ChiaVec::Memory::DefaultCudaAllocator@{ChiaVec::Memory::DefaultCudaAllocator}}
+\doxysubsubsection{\texorpdfstring{release()}{release()}}
+{\footnotesize\ttfamily virtual void Chia\+Vec\+::\+Memory\+::\+Default\+Cuda\+Allocator\+::release (\begin{DoxyParamCaption}\item[{void $\ast$}]{ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Releases the memory block pointed to by the given pointer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptr} & A pointer to the memory block to be released. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{structChiaVec_1_1Memory_1_1BaseAllocator_a1dcedb92b0b50a52ef54e10b1e478b35}{Chia\+Vec\+::\+Memory\+::\+Base\+Allocator$<$ false $>$}}.
+
+\mbox{\Hypertarget{structChiaVec_1_1Memory_1_1DefaultCudaAllocator_ab78170959861de2e53b47823fd8871bd}\label{structChiaVec_1_1Memory_1_1DefaultCudaAllocator_ab78170959861de2e53b47823fd8871bd}} 
+\index{ChiaVec::Memory::DefaultCudaAllocator@{ChiaVec::Memory::DefaultCudaAllocator}!resize@{resize}}
+\index{resize@{resize}!ChiaVec::Memory::DefaultCudaAllocator@{ChiaVec::Memory::DefaultCudaAllocator}}
+\doxysubsubsection{\texorpdfstring{resize()}{resize()}}
+{\footnotesize\ttfamily virtual void$\ast$ Chia\+Vec\+::\+Memory\+::\+Default\+Cuda\+Allocator\+::resize (\begin{DoxyParamCaption}\item[{void $\ast$}]{ptr,  }\item[{std\+::size\+\_\+t}]{old\+Size,  }\item[{std\+::size\+\_\+t}]{new\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Resizes the memory block pointed to by the given pointer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptr} & The pointer to the memory block to be resized. \\
+\hline
+{\em old\+Size} & The current size of the memory block, in bytes. \\
+\hline
+{\em new\+Size} & The new size of the memory block, in bytes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the resized memory block. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{structChiaVec_1_1Memory_1_1BaseAllocator_a2c70ecfbe20bf0a58a0e234ec29c2e91}{Chia\+Vec\+::\+Memory\+::\+Base\+Allocator$<$ false $>$}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/include/allocators.\+hpp\end{DoxyCompactItemize}
