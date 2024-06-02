@@ -2,10 +2,10 @@ use std::env;
 use std::path::PathBuf;
 
 fn main() {
-    let lib_path = PathBuf::from("../build/src")
+    let lib_path = PathBuf::from("../../build/src")
         .canonicalize()
         .expect("cannot canonicalize path");
-    let include_path = PathBuf::from("../src")
+    let include_path = PathBuf::from("../../src")
         .join("include")
         .canonicalize()
         .expect("cannot canonicalize path");

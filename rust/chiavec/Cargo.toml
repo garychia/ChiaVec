@@ -1,0 +1,7 @@
+[package]
+name = "chiavec"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+chiavec-sys = { path = "../chiavec-sys" }
