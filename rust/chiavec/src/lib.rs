@@ -17,6 +17,19 @@ macro_rules! declare_vec {
             Vec_uint8_t_get_const,
             Vec_uint8_t_get
         );
+        implement_vec!(
+            u8,
+            CudaVecu8,
+            CudaVec_uint8_t,
+            CudaVec_uint8_t_init,
+            CudaVec_uint8_t_init_with_values,
+            CudaVec_uint8_t_destroy,
+            CudaVec_uint8_t_len,
+            CudaVec_uint8_t_push,
+            CudaVec_uint8_t_pop,
+            CudaVec_uint8_t_get_const,
+            CudaVec_uint8_t_get
+        );
     };
     (u16) => {
         implement_vec!(
@@ -31,6 +44,19 @@ macro_rules! declare_vec {
             Vec_uint16_t_pop,
             Vec_uint16_t_get_const,
             Vec_uint16_t_get
+        );
+        implement_vec!(
+            u16,
+            CudaVecu16,
+            CudaVec_uint16_t,
+            CudaVec_uint16_t_init,
+            CudaVec_uint16_t_init_with_values,
+            CudaVec_uint16_t_destroy,
+            CudaVec_uint16_t_len,
+            CudaVec_uint16_t_push,
+            CudaVec_uint16_t_pop,
+            CudaVec_uint16_t_get_const,
+            CudaVec_uint16_t_get
         );
     };
     (u32) => {
@@ -47,6 +73,19 @@ macro_rules! declare_vec {
             Vec_uint32_t_get_const,
             Vec_uint32_t_get
         );
+        implement_vec!(
+            u32,
+            CudaVecu32,
+            CudaVec_uint32_t,
+            CudaVec_uint32_t_init,
+            CudaVec_uint32_t_init_with_values,
+            CudaVec_uint32_t_destroy,
+            CudaVec_uint32_t_len,
+            CudaVec_uint32_t_push,
+            CudaVec_uint32_t_pop,
+            CudaVec_uint32_t_get_const,
+            CudaVec_uint32_t_get
+        );
     };
     (u64) => {
         implement_vec!(
@@ -61,6 +100,19 @@ macro_rules! declare_vec {
             Vec_uint64_t_pop,
             Vec_uint64_t_get_const,
             Vec_uint64_t_get
+        );
+        implement_vec!(
+            u64,
+            CudaVecu64,
+            CudaVec_uint64_t,
+            CudaVec_uint64_t_init,
+            CudaVec_uint64_t_init_with_values,
+            CudaVec_uint64_t_destroy,
+            CudaVec_uint64_t_len,
+            CudaVec_uint64_t_push,
+            CudaVec_uint64_t_pop,
+            CudaVec_uint64_t_get_const,
+            CudaVec_uint64_t_get
         );
     };
     (i8) => {
@@ -77,6 +129,19 @@ macro_rules! declare_vec {
             Vec_int8_t_get_const,
             Vec_int8_t_get
         );
+        implement_vec!(
+            i8,
+            CudaVeci8,
+            CudaVec_int8_t,
+            CudaVec_int8_t_init,
+            CudaVec_int8_t_init_with_values,
+            CudaVec_int8_t_destroy,
+            CudaVec_int8_t_len,
+            CudaVec_int8_t_push,
+            CudaVec_int8_t_pop,
+            CudaVec_int8_t_get_const,
+            CudaVec_int8_t_get
+        );
     };
     (i16) => {
         implement_vec!(
@@ -91,6 +156,19 @@ macro_rules! declare_vec {
             Vec_int16_t_pop,
             Vec_int16_t_get_const,
             Vec_int16_t_get
+        );
+        implement_vec!(
+            i16,
+            CudaVeci16,
+            CudaVec_int16_t,
+            CudaVec_int16_t_init,
+            CudaVec_int16_t_init_with_values,
+            CudaVec_int16_t_destroy,
+            CudaVec_int16_t_len,
+            CudaVec_int16_t_push,
+            CudaVec_int16_t_pop,
+            CudaVec_int16_t_get_const,
+            CudaVec_int16_t_get
         );
     };
     (i32) => {
@@ -107,6 +185,19 @@ macro_rules! declare_vec {
             Vec_int32_t_get_const,
             Vec_int32_t_get
         );
+        implement_vec!(
+            i32,
+            CudaVeci32,
+            CudaVec_int32_t,
+            CudaVec_int32_t_init,
+            CudaVec_int32_t_init_with_values,
+            CudaVec_int32_t_destroy,
+            CudaVec_int32_t_len,
+            CudaVec_int32_t_push,
+            CudaVec_int32_t_pop,
+            CudaVec_int32_t_get_const,
+            CudaVec_int32_t_get
+        );
     };
     (i64) => {
         implement_vec!(
@@ -121,6 +212,19 @@ macro_rules! declare_vec {
             Vec_int64_t_pop,
             Vec_int64_t_get_const,
             Vec_int64_t_get
+        );
+        implement_vec!(
+            i64,
+            CudaVeci64,
+            CudaVec_int64_t,
+            CudaVec_int64_t_init,
+            CudaVec_int64_t_init_with_values,
+            CudaVec_int64_t_destroy,
+            CudaVec_int64_t_len,
+            CudaVec_int64_t_push,
+            CudaVec_int64_t_pop,
+            CudaVec_int64_t_get_const,
+            CudaVec_int64_t_get
         );
     };
     (f32) => {
@@ -137,6 +241,19 @@ macro_rules! declare_vec {
             Vec_float_get_const,
             Vec_float_get
         );
+        implement_vec!(
+            f32,
+            CudaVecf32,
+            CudaVec_float,
+            CudaVec_float_init,
+            CudaVec_float_init_with_values,
+            CudaVec_float_destroy,
+            CudaVec_float_len,
+            CudaVec_float_push,
+            CudaVec_float_pop,
+            CudaVec_float_get_const,
+            CudaVec_float_get
+        );
     };
     (f64) => {
         implement_vec!(
@@ -151,6 +268,19 @@ macro_rules! declare_vec {
             Vec_double_pop,
             Vec_double_get_const,
             Vec_double_get
+        );
+        implement_vec!(
+            f64,
+            CudaVecf64,
+            CudaVec_double,
+            CudaVec_double_init,
+            CudaVec_double_init_with_values,
+            CudaVec_double_destroy,
+            CudaVec_double_len,
+            CudaVec_double_push,
+            CudaVec_double_pop,
+            CudaVec_double_get_const,
+            CudaVec_double_get
         );
     };
 }
@@ -239,26 +369,39 @@ mod tests {
     #[test]
     fn test_vecs() {
         let mut vec = Veci32::new();
+        let mut cuda_vec = CudaVeci32::new();
 
         assert!(vec.is_empty());
+        assert!(cuda_vec.is_empty());
 
         for i in 1..=10 {
             vec.push(i);
             assert!(vec.len() == i as usize);
             assert!(vec[i as usize - 1] == i);
+
+            cuda_vec.push(i);
+            assert!(cuda_vec.len() == i as usize);
         }
         for i in (1..=10).rev() {
             assert!(vec.pop().map_or(false, |e| e == i));
+            assert!(cuda_vec.pop().map_or(false, |e| e == i));
         }
 
         assert!(vec.is_empty());
+        assert!(cuda_vec.is_empty());
 
         let vec = Veci32::from_array(&[1, 2, 3, 4, 5]);
+        let mut cuda_vec = CudaVeci32::from_array(&[1, 2, 3, 4, 5]);
         assert!(!vec.is_empty());
         assert!(vec.len() == 5);
+        assert!(!cuda_vec.is_empty());
+        assert!(cuda_vec.len() == 5);
 
         for i in 1..=5 {
             assert!(vec[i - 1] == i as i32);
+        }
+        for i in (1..=5).rev() {
+            assert!(cuda_vec.pop().map_or(false, |e| e == i));
         }
     }
 }
