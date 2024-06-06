@@ -8,6 +8,13 @@ macro_rules! implement_vec {
         paste! {
             implement_vec!(
                 $type,
+                concat!("A container that stores ", stringify!($type), " elements on the CPU."),
+                concat!("Creates an empty ", stringify!([<Vec $type>].)),
+                concat!("Creates a ", stringify!([<Vec $type>]), " populated with the elements in a given slice."),
+                concat!("Returns the number of elements in the ", stringify!([<Vec $type>].)),
+                concat!("Returns a bool indicating whether the ", stringify!([<Vec $type>]), " is empty."),
+                concat!("Push (append) a new element into the ", stringify!([<Vec $type>].)),
+                concat!("Pop (remove) the last element from the ", stringify!([<Vec $type>].)),
                 [<Vec $type>],
                 [<Vec_ $c_type>],
                 [<Vec_ $c_type _init>],
@@ -21,6 +28,13 @@ macro_rules! implement_vec {
             );
             implement_vec!(
                 $type,
+                concat!("A container that stores ", stringify!($type), " elements on the GPU."),
+                concat!("Creates an empty ", stringify!([<CudaVec $type>].)),
+                concat!("Creates a ", stringify!([<CudaVec $type>]), " populated with the elements in a given slice."),
+                concat!("Returns the number of elements in the ", stringify!([<CudaVec $type>].)),
+                concat!("Returns a bool indicating whether the ", stringify!([<CudaVec $type>]), " is empty."),
+                concat!("Push (append) a new element to the ", stringify!([<CudaVec $type>].)),
+                concat!("Pop (remove) the last element from the ", stringify!([<CudaVec $type>].)),
                 [<CudaVec $type>],
                 [<CudaVec_ $c_type>],
                 [<CudaVec_ $c_type _init>],
@@ -34,37 +48,44 @@ macro_rules! implement_vec {
             );
         }
     };
-    ($element_type: ident, $name: ident, $internal: ident, $init: ident, $init_with_values: ident, $destroy: ident, $get_len: ident, $push: ident, $pop: ident, $get_const: ident, $get_mut: ident) => {
+    ($element_type: ident, $struc_doc: expr, $new_doc: expr, $from_slice_doc: expr, $len_doc: expr, $is_empty_doc: expr, $push_doc: expr, $pop_doc: expr, $name: ident, $internal: ident, $init: ident, $init_with_values: ident, $destroy: ident, $get_len: ident, $push: ident, $pop: ident, $get_const: ident, $get_mut: ident) => {
+        #[doc = $struc_doc]
         pub struct $name {
             data: $internal,
         }
 
         impl $name {
-            fn new() -> Self {
+            #[doc = $new_doc]
+            pub fn new() -> Self {
                 let mut data = $internal { _ptr: null_mut() };
                 unsafe { $init(addr_of_mut!(data)) };
                 Self { data }
             }
 
-            fn from_slice(values: &[$element_type]) -> Self {
+            #[doc = $from_slice_doc]
+            pub fn from_slice(values: &[$element_type]) -> Self {
                 let mut data = $internal { _ptr: null_mut() };
                 unsafe { $init_with_values(addr_of_mut!(data), values.as_ptr(), values.len(), 1) };
                 Self { data }
             }
 
-            fn len(&self) -> usize {
+            #[doc = $len_doc]
+            pub fn len(&self) -> usize {
                 unsafe { $get_len(addr_of!(self.data)) as usize }
             }
 
-            fn is_empty(&self) -> bool {
+            #[doc = $is_empty_doc]
+            pub fn is_empty(&self) -> bool {
                 self.len() == 0
             }
 
-            fn push(&mut self, element: $element_type) {
+            #[doc = $push_doc]
+            pub fn push(&mut self, element: $element_type) {
                 unsafe { $push(addr_of_mut!(self.data), addr_of!(element), 1) };
             }
 
-            fn pop(&mut self) -> Option<$element_type> {
+            #[doc = $pop_doc]
+            pub fn pop(&mut self) -> Option<$element_type> {
                 if self.len() == 0 {
                     return None;
                 }
